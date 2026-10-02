@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SourceConduct | Software. Licensing. Opportunity.</title>
+  <meta name="description" content="SourceConduct helps technology companies navigate software licensing, open source, commercialisation and enterprise growth.">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: #14213d;
+      background: #f7f9fc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    main {
+      width: min(920px, 90%);
+      padding: 72px 0;
+    }
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #14213d;
+      margin-bottom: 80px;
+    }
+    .brand span { color: #198f8a; }
+    h1 {
+      max-width: 760px;
+      margin: 0 0 24px;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+    }
+    .tagline {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #536174;
+      max-width: 680px;
+      margin-bottom: 64px;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: #dce2ea;
+      border: 1px solid #dce2ea;
+    }
+    .service {
+      background: #fff;
+      padding: 28px;
+      font-size: 17px;
+      font-weight: 600;
+    }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid #dce2ea;
+      color: #7a8494;
+      font-size: 14px;
+    }
+    @media (max-width: 600px) {
+      main { padding: 40px 0; }
+      .brand { margin-bottom: 52px; }
+      .services { grid-template-columns: 1fr; }
+      .service { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="brand">SOURCE<span>CONDUCT</span></div>
+
+    <h1>Software.<br>Licensing.<br>Opportunity.</h1>
+
+    <p class="tagline">
+      We help technology companies navigate software licensing, open source,
+      commercialisation and enterprise growth.
+    </p>
+
+    <section class="services">
+      <div class="service">Software Licensing</div>
+      <div class="service">Open Source &amp; Compliance</div>
+      <div class="service">Commercialisation</div>
+      <div class="service">Enterprise Sales &amp; Market Development</div>
+    </section>
+
+    <footer>
+      SourceConduct · sourceconduct.com
+    </footer>
+  </main>
+</body>
+</html>
