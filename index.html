@@ -3,96 +3,661 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SourceConduct | Software. Licensing. Opportunity.</title>
-  <meta name="description" content="SourceConduct helps technology companies navigate software licensing, open source, commercialisation and enterprise growth.">
+  <title>SourceConduct | Open Source & Software Licensing</title>
+  <meta name="description" content="SourceConduct provides practical guidance on open source licensing, enforcement, software audits and commercial opportunities.">
   <style>
+    :root {
+      --ink: #0b1220;
+      --muted: #657084;
+      --soft: #f5f7fa;
+      --line: rgba(11,18,32,.10);
+      --teal: #16a394;
+      --blue: #4268d8;
+      --white: #ffffff;
+    }
+
     * { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y proximity;
+    }
+
+    body {
+      overscroll-behavior-y: none;
+    }
+
     body {
       margin: 0;
-      min-height: 100vh;
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      color: #14213d;
-      background: #f7f9fc;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 85% 10%, rgba(66,104,216,.11), transparent 28%),
+        radial-gradient(circle at 5% 42%, rgba(22,163,148,.08), transparent 30%),
+        var(--soft);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 44px));
+      margin: 0 auto;
+    }
+
+    /* Brand */
+    header {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      padding: 28px 0;
     }
-    main {
-      width: min(920px, 90%);
-      padding: 72px 0;
-    }
+
     .brand {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: #14213d;
-      margin-bottom: 80px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--ink);
     }
-    .brand span { color: #198f8a; }
-    h1 {
-      max-width: 760px;
-      margin: 0 0 24px;
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
-      font-weight: 700;
-    }
-    .tagline {
-      font-size: 20px;
-      line-height: 1.6;
-      color: #536174;
-      max-width: 680px;
-      margin-bottom: 64px;
-    }
-    .services {
+
+    .mark {
+      width: 34px;
+      height: 34px;
+      position: relative;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1px;
-      background: #dce2ea;
-      border: 1px solid #dce2ea;
+      place-items: center;
     }
-    .service {
-      background: #fff;
-      padding: 28px;
+
+    .mark::before,
+    .mark::after {
+      content: "";
+      position: absolute;
+      border-radius: 5px;
+      transform: rotate(45deg);
+    }
+
+    .mark::before {
+      width: 22px;
+      height: 22px;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+    }
+
+    .mark::after {
+      width: 10px;
+      height: 10px;
+      background: var(--soft);
+    }
+
+    .wordmark {
       font-size: 17px;
+      font-weight: 800;
+      letter-spacing: .11em;
+    }
+
+    .wordmark span { color: var(--teal); }
+
+    .header-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
       font-weight: 600;
     }
-    footer {
-      margin-top: 64px;
-      padding-top: 24px;
-      border-top: 1px solid #dce2ea;
-      color: #7a8494;
-      font-size: 14px;
+
+    /* Hero */
+    .hero {
+      padding: 108px 0 105px;
+      max-width: 1000px;
     }
-    @media (max-width: 600px) {
-      main { padding: 40px 0; }
-      .brand { margin-bottom: 52px; }
-      .services { grid-template-columns: 1fr; }
-      .service { padding: 22px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: var(--teal);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 950px;
+      font-size: clamp(47px, 7.5vw, 88px);
+      line-height: .99;
+      letter-spacing: -.055em;
+      font-weight: 750;
+    }
+
+    h1 .accent {
+      background: linear-gradient(100deg, #2455bd, #16a394);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 32px 0 0;
+      color: var(--muted);
+      font-size: clamp(19px, 2vw, 23px);
+      line-height: 1.55;
+      letter-spacing: -.015em;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 38px;
+      padding: 15px 21px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      box-shadow: 0 14px 32px rgba(11,18,32,.16);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px rgba(11,18,32,.20);
+    }
+
+    .snap-section {
+      scroll-snap-align: start;
+      scroll-snap-stop: normal;
+    }
+
+    .hero {
+      min-height: calc(100vh - 92px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Scenarios */
+    .section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 0;
+    }
+
+    .section-intro {
+      max-width: 720px;
+      margin-bottom: 34px;
+    }
+
+    .section-label {
+      margin-bottom: 13px;
+      color: #8993a3;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.08;
+      letter-spacing: -.04em;
+    }
+
+    .journey {
+      border-top: 1px solid var(--line);
+    }
+
+    .journey-item {
+      display: grid;
+      opacity: .72;
+      transform: translateY(10px);
+      transition: opacity .65s ease, transform .65s ease;
+      grid-template-columns: 110px minmax(0, 760px);
+      gap: 34px;
+      padding: 48px 0 50px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .journey-item:first-child {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .journey-number {
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      padding-top: 7px;
+    }
+
+    .journey-content {
+      max-width: 760px;
+    }
+
+    .journey-kicker {
+      margin-bottom: 14px;
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .journey-content h3 {
+      margin: 0 0 15px;
+      font-size: clamp(25px, 3vw, 34px);
+      line-height: 1.13;
+      letter-spacing: -.035em;
+      font-weight: 700;
+    }
+
+    .journey-content p {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* Closing */
+    .closing {
+      margin-bottom: 58px;
+      padding: 55px;
+      border-radius: 31px;
+      background: var(--ink);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .closing::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      right: -150px;
+      top: -310px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(22,163,148,.34), transparent 65%);
+    }
+
+    .closing h2 {
+      position: relative;
+      max-width: 730px;
+      margin: 0;
+      font-size: clamp(32px, 4.2vw, 51px);
+      line-height: 1.06;
+      letter-spacing: -.045em;
+    }
+
+    .closing p {
+      position: relative;
+      max-width: 680px;
+      margin: 18px 0 28px;
+      color: #b9c2d0;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .closing .cta {
+      margin-top: 0;
+      background: white;
+      color: var(--ink);
+      box-shadow: none;
+    }
+
+    .footer-cta-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto 26px;
+      width: min(760px, 100%);
+    }
+
+    .footer-cta {
+      width: 100%;
+      min-height: 82px;
+      padding: 18px 24px 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border: 1px solid rgba(11,18,32,.10);
+      border-radius: 18px;
+      background: linear-gradient(105deg, rgba(255,255,255,.90), rgba(244,249,250,.88));
+      color: var(--ink);
+      text-align: left;
+      text-decoration: none;
+      box-shadow: 0 14px 40px rgba(20,34,57,.055);
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-cta::after {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      right: -75px;
+      top: -80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(22,163,148,.16), transparent 68%);
+      pointer-events: none;
+    }
+
+    .footer-cta-main {
+      position: relative;
+      z-index: 1;
+      font-size: 17px;
+      line-height: 1.35;
+      font-weight: 700;
+      letter-spacing: -.015em;
+    }
+
+    .footer-cta-action {
+      position: relative;
+      z-index: 1;
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 17px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: white;
+      font-size: 13px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .footer-cta-action b {
+      font-size: 17px;
+      line-height: 1;
+      font-weight: 400;
+    }
+
+    .footer-cta:hover {
+      transform: translateY(-3px);
+      border-color: rgba(22,163,148,.35);
+      box-shadow: 0 20px 50px rgba(20,34,57,.11);
+    }
+
+    footer {
+      display: flex;
+      justify-content: center;
+      padding: 0 0 34px;
+      color: #8b95a5;
+      font-size: 13px;
+    }
+
+    .footer-contact {
+      display: inline-flex;
+      align-items: stretch;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.58);
+      overflow: hidden;
+    }
+
+    .footer-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 15px 20px;
+      min-width: 145px;
+    }
+
+    .footer-label {
+      color: #9aa3b1;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .footer-value {
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .footer-value:hover {
+      color: var(--teal);
+    }
+
+    .footer-divider {
+      width: 1px;
+      background: var(--line);
+    }
+
+    @media (max-width: 800px) {
+      .journey-item {
+        grid-template-columns: 54px minmax(0, 1fr);
+        gap: 16px;
+        padding: 38px 0 40px;
+      }
+      .hero {
+        min-height: calc(100svh - 70px);
+        padding: 60px 0 70px;
+      }
+      .section {
+        min-height: 100svh;
+        padding: 65px 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 30px, 1120px); }
+      .header-link { display: none; }
+      header { padding: 22px 0; }
+      .hero {
+        min-height: calc(100svh - 70px);
+        padding: 50px 0 60px;
+      }
+      .section {
+        min-height: 100svh;
+        padding: 55px 0;
+      }
+      .footer-cta-wrap { margin-bottom: 22px; }
+      .footer-cta { padding: 17px 18px; }
+      .footer-cta-main { font-size: 15px; }
+      .footer-cta-action { padding: 9px 13px; }
+      .footer-contact { width: 100%; }
+      .footer-item { flex: 1; min-width: 0; padding: 14px 16px; }
+      .footer-value { font-size: 12px; overflow-wrap: anywhere; }
     }
   </style>
 </head>
+
 <body>
-  <main>
-    <div class="brand">SOURCE<span>CONDUCT</span></div>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#">
+        <span class="mark" aria-hidden="true"></span>
+        <span class="wordmark">SOURCE<span>CONDUCT</span></span>
+      </a>
+      <a class="header-link" href="#talk">Let's talk ↗</a>
+    </header>
 
-    <h1>Software.<br>Licensing.<br>Opportunity.</h1>
+    <main>
+      <section class="hero snap-section">
+        <div class="eyebrow">Open source licensing advisory</div>
 
-    <p class="tagline">
-      We help technology companies navigate software licensing, open source,
-      commercialisation and enterprise growth.
-    </p>
+        <h1>
+          When open source software and the licensing gets
+          <span class="accent">complicated,</span>
+          let's talk.
+        </h1>
 
-    <section class="services">
-      <div class="service">Software Licensing</div>
-      <div class="service">Open Source &amp; Compliance</div>
-      <div class="service">Commercialisation</div>
-      <div class="service">Enterprise Sales &amp; Market Development</div>
-    </section>
+        <p class="hero-copy">
+          Open source licensing questions. Enforcement challenges. Software
+          audits. Corporate responsibility. SourceConduct helps companies
+          understand their open source software, their rights and obligations,
+          and what they can do next.
+        </p>
+
+        <a class="cta" href="#talk">Reach out to us <span>↗</span></a>
+
+
+      </section>
+
+      <section class="section snap-section">
+        <div class="section-intro">
+          <div class="section-label">Where we can help</div>
+          <h2 class="section-title">The questions behind your open source software.</h2>
+        </div>
+
+        <div class="journey">
+          <article class="journey-item">
+            <div class="journey-number">01</div>
+            <div class="journey-content">
+              <div class="journey-kicker">Using open source</div>
+              <h3>“We use open source in our applications. What are our rights and obligations?”</h3>
+              <p>
+                You have open source software in an existing product or application,
+                perhaps under GPL, AGPL or another copyleft license, and something
+                about the licensing is unclear. We help you understand
+                the license, your rights, your obligations and the practical implications
+                for your business.
+              </p>
+            </div>
+          </article>
+
+          <article class="journey-item">
+            <div class="journey-number">02</div>
+            <div class="journey-content">
+              <div class="journey-kicker">Enforcing your rights</div>
+              <h3>“We own an open source project. What happens when someone isn't respecting the license?”</h3>
+              <p>
+                You maintain or own open source software and believe a user or company
+                may not be complying with its license. We provide guidance on identifying
+                the issue, understanding your enforcement rights under GPL, AGPL
+                and other licenses, and deciding how to engage.
+              </p>
+            </div>
+          </article>
+
+          <article class="journey-item">
+            <div class="journey-number">03</div>
+            <div class="journey-content">
+              <div class="journey-kicker">Auditing deployments</div>
+              <h3>“Our software is out there. Are customers using it within their entitlements?”</h3>
+              <p>
+                Your open source project has been around for years and has a real user
+                or customer base. You want to understand how it is being deployed,
+                whether usage aligns with your licensing model and where gaps may exist.
+              </p>
+            </div>
+          </article>
+
+          <article class="journey-item">
+            <div class="journey-number">04</div>
+            <div class="journey-content">
+              <div class="journey-kicker">Commercial opportunity</div>
+              <h3>“We have valuable software. Is there a better way to turn that usage into revenue?”</h3>
+              <p>
+                Open source adoption can create commercial opportunities as well as
+                obligations. We help software companies understand their installed base,
+                licensing options and the path from open source usage to sustainable revenue.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+
+    </main>
+
+    <div class="footer-cta-wrap">
+      <a class="footer-cta" href="mailto:sourceconduct@gmail.com">
+        <span class="footer-cta-main">Need guidance before a licensing issue becomes a problem?</span>
+        <span class="footer-cta-action">Let's talk <b>↗</b></span>
+      </a>
+    </div>
 
     <footer>
-      SourceConduct · sourceconduct.com
+      <div class="footer-contact">
+        <div class="footer-item">
+          <span class="footer-label">Location</span>
+          <span class="footer-value">Belgium</span>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-item">
+          <span class="footer-label">Email</span>
+          <a class="footer-value" href="mailto:sourceconduct@gmail.com">sourceconduct@gmail.com</a>
+        </div>
+      </div>
     </footer>
-  </main>
+  </div>
+
+  <script>
+    (() => {
+      const sections = Array.from(document.querySelectorAll('.snap-section'));
+      let locked = false;
+      let touchStartY = 0;
+      let wheelTimer = null;
+
+      const goTo = (index) => {
+        if (index < 0 || index >= sections.length || locked) return;
+        locked = true;
+        sections[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        window.setTimeout(() => { locked = false; }, 850);
+      };
+
+      // Desktop: one deliberate wheel gesture advances one section.
+      window.addEventListener('wheel', (event) => {
+        if (Math.abs(event.deltaY) < 12 || locked) return;
+
+        const current = sections.reduce((best, section, i) => {
+          const distance = Math.abs(section.getBoundingClientRect().top);
+          return distance < best.distance ? { i, distance } : best;
+        }, { i: 0, distance: Infinity }).i;
+
+        const next = event.deltaY > 0 ? current + 1 : current - 1;
+        if (next >= 0 && next < sections.length) {
+          event.preventDefault();
+          clearTimeout(wheelTimer);
+          wheelTimer = setTimeout(() => goTo(next), 80);
+        }
+      }, { passive: false });
+
+      // Mobile: one swipe advances one section.
+      window.addEventListener('touchstart', (event) => {
+        touchStartY = event.changedTouches[0].clientY;
+      }, { passive: true });
+
+      window.addEventListener('touchend', (event) => {
+        if (locked) return;
+
+        const endY = event.changedTouches[0].clientY;
+        const delta = touchStartY - endY;
+        if (Math.abs(delta) < 45) return;
+
+        const current = sections.reduce((best, section, i) => {
+          const distance = Math.abs(section.getBoundingClientRect().top);
+          return distance < best.distance ? { i, distance } : best;
+        }, { i: 0, distance: Infinity }).i;
+
+        const next = delta > 0 ? current + 1 : current - 1;
+        if (next >= 0 && next < sections.length) {
+          goTo(next);
+        }
+      }, { passive: true });
+    })();
+  </script>
+
 </body>
 </html>
