@@ -110,12 +110,12 @@
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 28px;
       color: var(--teal);
-      font-size: 12px;
+      font-size: 15px;
       font-weight: 800;
-      letter-spacing: .16em;
+      letter-spacing: .12em;
       text-transform: uppercase;
     }
 
@@ -181,7 +181,8 @@
       min-height: calc(100vh - 92px);
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
+      padding-top: 54px;
     }
 
     /* Scenarios */
@@ -451,7 +452,7 @@
       }
       .hero {
         min-height: calc(100svh - 70px);
-        padding: 60px 0 70px;
+        padding: 38px 0 70px;
       }
       .section {
         min-height: 100svh;
@@ -465,7 +466,7 @@
       header { padding: 22px 0; }
       .hero {
         min-height: calc(100svh - 70px);
-        padding: 50px 0 60px;
+        padding: 30px 0 60px;
       }
       .section {
         min-height: 100svh;
@@ -606,20 +607,16 @@
   <script>
     (() => {
       const sections = Array.from(document.querySelectorAll('.snap-section'));
-      let locked = false;
       let touchStartY = 0;
-      let wheelTimer = null;
 
       const goTo = (index) => {
-        if (index < 0 || index >= sections.length || locked) return;
-        locked = true;
+        if (index < 0 || index >= sections.length) return;
         sections[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
-        window.setTimeout(() => { locked = false; }, 850);
       };
 
       // Desktop: one deliberate wheel gesture advances one section.
       window.addEventListener('wheel', (event) => {
-        if (Math.abs(event.deltaY) < 12 || locked) return;
+        if (Math.abs(event.deltaY) < 12) return;
 
         const current = sections.reduce((best, section, i) => {
           const distance = Math.abs(section.getBoundingClientRect().top);
@@ -629,8 +626,7 @@
         const next = event.deltaY > 0 ? current + 1 : current - 1;
         if (next >= 0 && next < sections.length) {
           event.preventDefault();
-          clearTimeout(wheelTimer);
-          wheelTimer = setTimeout(() => goTo(next), 80);
+          goTo(next);
         }
       }, { passive: false });
 
@@ -640,8 +636,6 @@
       }, { passive: true });
 
       window.addEventListener('touchend', (event) => {
-        if (locked) return;
-
         const endY = event.changedTouches[0].clientY;
         const delta = touchStartY - endY;
         if (Math.abs(delta) < 45) return;
