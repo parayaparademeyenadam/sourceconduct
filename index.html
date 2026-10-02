@@ -272,6 +272,28 @@
       line-height: 1.7;
     }
 
+    .section-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 22px;
+      padding: 10px 17px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 750;
+      box-shadow: 0 8px 22px rgba(11,18,32,.12);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .section-cta:hover {
+      transform: translateY(-2px);
+      background: var(--teal);
+      box-shadow: 0 12px 28px rgba(11,18,32,.16);
+    }
+
     /* Closing */
     .closing {
       margin-bottom: 58px;
@@ -317,82 +339,6 @@
       background: white;
       color: var(--ink);
       box-shadow: none;
-    }
-
-    .footer-cta-wrap {
-      display: flex;
-      justify-content: center;
-      margin: 0 auto 26px;
-      width: min(760px, 100%);
-    }
-
-    .footer-cta {
-      width: 100%;
-      min-height: 82px;
-      padding: 18px 24px 18px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      border: 1px solid rgba(11,18,32,.10);
-      border-radius: 18px;
-      background: linear-gradient(105deg, rgba(255,255,255,.90), rgba(244,249,250,.88));
-      color: var(--ink);
-      text-align: left;
-      text-decoration: none;
-      box-shadow: 0 14px 40px rgba(20,34,57,.055);
-      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .footer-cta::after {
-      content: "";
-      position: absolute;
-      width: 170px;
-      height: 170px;
-      right: -75px;
-      top: -80px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(22,163,148,.16), transparent 68%);
-      pointer-events: none;
-    }
-
-    .footer-cta-main {
-      position: relative;
-      z-index: 1;
-      font-size: 17px;
-      line-height: 1.35;
-      font-weight: 700;
-      letter-spacing: -.015em;
-    }
-
-    .footer-cta-action {
-      position: relative;
-      z-index: 1;
-      flex: 0 0 auto;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 11px 17px;
-      border-radius: 999px;
-      background: var(--ink);
-      color: white;
-      font-size: 13px;
-      font-weight: 750;
-      white-space: nowrap;
-    }
-
-    .footer-cta-action b {
-      font-size: 17px;
-      line-height: 1;
-      font-weight: 400;
-    }
-
-    .footer-cta:hover {
-      transform: translateY(-3px);
-      border-color: rgba(22,163,148,.35);
-      box-shadow: 0 20px 50px rgba(20,34,57,.11);
     }
 
     footer {
@@ -534,6 +480,7 @@
                 the license, your rights, your obligations and the practical implications
                 for your business.
               </p>
+              <a class="section-cta" href="mailto:sourceconduct@gmail.com">Let's talk ↗</a>
             </div>
           </article>
 
@@ -548,6 +495,7 @@
                 the issue, understanding your enforcement rights under GPL, AGPL
                 and other licenses, and deciding how to engage.
               </p>
+              <a class="section-cta" href="mailto:sourceconduct@gmail.com">Let's talk ↗</a>
             </div>
           </article>
 
@@ -561,6 +509,7 @@
                 or customer base. You want to understand how it is being deployed,
                 whether usage aligns with your licensing model and where gaps may exist.
               </p>
+              <a class="section-cta" href="mailto:sourceconduct@gmail.com">Let's talk ↗</a>
             </div>
           </article>
 
@@ -574,6 +523,7 @@
                 obligations. We help software companies understand their installed base,
                 licensing options and the path from open source usage to sustainable revenue.
               </p>
+              <a class="section-cta" href="mailto:sourceconduct@gmail.com">Let's talk ↗</a>
             </div>
           </article>
         </div>
@@ -581,13 +531,6 @@
 
 
     </main>
-
-    <div class="footer-cta-wrap">
-      <a class="footer-cta" href="mailto:sourceconduct@gmail.com">
-        <span class="footer-cta-main">Need guidance before a licensing issue becomes a problem?</span>
-        <span class="footer-cta-action">Let's talk <b>↗</b></span>
-      </a>
-    </div>
 
     <footer>
       <div class="footer-contact">
