@@ -73,7 +73,7 @@
     }
 
     .wordmark span {
-      color: #7f8998;
+      color: #d5a62a;
     }
 
     .tagline {
@@ -417,64 +417,61 @@
       <a class="brand" href="#">
           <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
             <defs>
-              <linearGradient id="cBody" x1="20" y1="20" x2="82" y2="82" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#081322"/>
-                <stop offset="1" stop-color="#18283c"/>
+              <linearGradient id="cBody" x1="18" y1="18" x2="82" y2="82" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#071221"/>
+                <stop offset=".72" stop-color="#101d2f"/>
+                <stop offset="1" stop-color="#26364a"/>
               </linearGradient>
 
-              <radialGradient id="goldLight">
+              <linearGradient id="goldEdge" x1="56" y1="20" x2="82" y2="80" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#f9d66b"/>
+                <stop offset=".48" stop-color="#e8b83d"/>
+                <stop offset="1" stop-color="#c99018"/>
+              </linearGradient>
+
+              <radialGradient id="goldGlow">
                 <stop offset="0" stop-color="#ffd968" stop-opacity=".95"/>
-                <stop offset=".35" stop-color="#f6c54f" stop-opacity=".72"/>
-                <stop offset="1" stop-color="#f6c54f" stop-opacity="0"/>
+                <stop offset=".38" stop-color="#f1bd43" stop-opacity=".48"/>
+                <stop offset="1" stop-color="#f1bd43" stop-opacity="0"/>
               </radialGradient>
 
-              <filter id="softGold" x="-150%" y="-150%" width="400%" height="400%">
-                <feGaussianBlur stdDeviation="3.2"/>
-              </filter>
-
-              <filter id="wideGold" x="-150%" y="-150%" width="400%" height="400%">
-                <feGaussianBlur stdDeviation="6"/>
+              <filter id="glow" x="-150%" y="-150%" width="400%" height="400%">
+                <feGaussianBlur stdDeviation="3.5"/>
               </filter>
             </defs>
 
-            <!-- The source/code base -->
-            <path d="M 76 24 A 36 36 0 1 0 76 76"
+            <!-- Deep navy source/code base -->
+            <path d="M 77 23 A 37 37 0 1 0 77 77"
                   fill="none"
                   stroke="url(#cBody)"
-                  stroke-width="17"
+                  stroke-width="18"
                   stroke-linecap="butt"/>
 
-            <!-- Warm light escaping from both open ends -->
-            <circle cx="76" cy="24" r="14" fill="url(#goldLight)" filter="url(#wideGold)" opacity=".8"/>
-            <circle cx="76" cy="76" r="14" fill="url(#goldLight)" filter="url(#wideGold)" opacity=".8"/>
+            <!-- Gold transition at the two open ends -->
+            <path d="M 77 23 A 37 37 0 0 0 68.5 26.2"
+                  fill="none"
+                  stroke="url(#goldEdge)"
+                  stroke-width="18"
+                  stroke-linecap="butt"/>
+            <path d="M 77 77 A 37 37 0 0 1 68.5 73.8"
+                  fill="none"
+                  stroke="url(#goldEdge)"
+                  stroke-width="18"
+                  stroke-linecap="butt"/>
 
-            <!-- Focused golden glow on the cut ends -->
-            <path d="M 76 24 A 36 36 0 0 0 67.5 27.4"
-                  fill="none"
-                  stroke="#f5c653"
-                  stroke-width="5"
-                  stroke-linecap="round"
-                  opacity=".65"
-                  filter="url(#softGold)"/>
-            <path d="M 76 76 A 36 36 0 0 1 67.5 72.6"
-                  fill="none"
-                  stroke="#f5c653"
-                  stroke-width="5"
-                  stroke-linecap="round"
-                  opacity=".65"
-                  filter="url(#softGold)"/>
+            <!-- Concentrated golden light -->
+            <circle cx="76" cy="23" r="15" fill="url(#goldGlow)" filter="url(#glow)"/>
+            <circle cx="76" cy="77" r="15" fill="url(#goldGlow)" filter="url(#glow)"/>
 
-            <!-- Bright inner edge of the two openings -->
-            <path d="M 76 24 A 36 36 0 0 0 69.2 26.8"
-                  fill="none"
-                  stroke="#f7cf63"
-                  stroke-width="2.2"
+            <!-- Bright highlights on the cut ends -->
+            <path d="M 77 23 L 69.5 26.1"
+                  stroke="#ffe08a"
+                  stroke-width="3"
                   stroke-linecap="round"
                   opacity=".95"/>
-            <path d="M 76 76 A 36 36 0 0 1 69.2 73.2"
-                  fill="none"
-                  stroke="#f7cf63"
-                  stroke-width="2.2"
+            <path d="M 77 77 L 69.5 73.9"
+                  stroke="#ffe08a"
+                  stroke-width="3"
                   stroke-linecap="round"
                   opacity=".95"/>
           </svg>
