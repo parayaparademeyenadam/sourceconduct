@@ -53,9 +53,9 @@
     }
 
     .mark {
-      width: 64px;
-      height: 64px;
-      flex: 0 0 64px;
+      width: 58px;
+      height: 58px;
+      flex: 0 0 58px;
       display: block;
     }
 
@@ -73,7 +73,7 @@
     }
 
     .wordmark span {
-      color: #d5a62a;
+      color: #d6a62a;
     }
 
     .tagline {
@@ -417,63 +417,54 @@
       <a class="brand" href="#">
           <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
             <defs>
-              <linearGradient id="cBody" x1="18" y1="18" x2="82" y2="82" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#071221"/>
-                <stop offset=".72" stop-color="#101d2f"/>
-                <stop offset="1" stop-color="#26364a"/>
+              <linearGradient id="navyC" x1="16" y1="12" x2="84" y2="88" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#061121"/>
+                <stop offset=".72" stop-color="#101e31"/>
+                <stop offset="1" stop-color="#1b2a3d"/>
               </linearGradient>
-
-              <linearGradient id="goldEdge" x1="56" y1="20" x2="82" y2="80" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#f9d66b"/>
-                <stop offset=".48" stop-color="#e8b83d"/>
-                <stop offset="1" stop-color="#c99018"/>
+              <linearGradient id="goldC" x1="64" y1="18" x2="77" y2="82" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#f9d76b"/>
+                <stop offset=".5" stop-color="#edbd45"/>
+                <stop offset="1" stop-color="#d69c20"/>
               </linearGradient>
-
-              <radialGradient id="goldGlow">
-                <stop offset="0" stop-color="#ffd968" stop-opacity=".95"/>
-                <stop offset=".38" stop-color="#f1bd43" stop-opacity=".48"/>
-                <stop offset="1" stop-color="#f1bd43" stop-opacity="0"/>
+              <radialGradient id="light">
+                <stop offset="0" stop-color="#ffe18a" stop-opacity=".9"/>
+                <stop offset=".42" stop-color="#f4c54e" stop-opacity=".42"/>
+                <stop offset="1" stop-color="#f4c54e" stop-opacity="0"/>
               </radialGradient>
-
-              <filter id="glow" x="-150%" y="-150%" width="400%" height="400%">
-                <feGaussianBlur stdDeviation="3.5"/>
+              <filter id="blur" x="-200%" y="-200%" width="500%" height="500%">
+                <feGaussianBlur stdDeviation="4"/>
               </filter>
             </defs>
 
-            <!-- Deep navy source/code base -->
-            <path d="M 77 23 A 37 37 0 1 0 77 77"
+            <!-- Main C -->
+            <path d="M77 24 A36 36 0 1 0 77 76"
                   fill="none"
-                  stroke="url(#cBody)"
+                  stroke="url(#navyC)"
                   stroke-width="18"
                   stroke-linecap="butt"/>
 
-            <!-- Gold transition at the two open ends -->
-            <path d="M 77 23 A 37 37 0 0 0 68.5 26.2"
+            <!-- Gold-lit inner edge of the opening -->
+            <path d="M77 24 A36 36 0 0 0 67.5 27.2"
                   fill="none"
-                  stroke="url(#goldEdge)"
+                  stroke="url(#goldC)"
                   stroke-width="18"
                   stroke-linecap="butt"/>
-            <path d="M 77 77 A 37 37 0 0 1 68.5 73.8"
+            <path d="M77 76 A36 36 0 0 1 67.5 72.8"
                   fill="none"
-                  stroke="url(#goldEdge)"
+                  stroke="url(#goldC)"
                   stroke-width="18"
                   stroke-linecap="butt"/>
 
-            <!-- Concentrated golden light -->
-            <circle cx="76" cy="23" r="15" fill="url(#goldGlow)" filter="url(#glow)"/>
-            <circle cx="76" cy="77" r="15" fill="url(#goldGlow)" filter="url(#glow)"/>
+            <!-- Soft light radiating from the two ends -->
+            <circle cx="76" cy="24" r="16" fill="url(#light)" filter="url(#blur)"/>
+            <circle cx="76" cy="76" r="16" fill="url(#light)" filter="url(#blur)"/>
 
-            <!-- Bright highlights on the cut ends -->
-            <path d="M 77 23 L 69.5 26.1"
-                  stroke="#ffe08a"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  opacity=".95"/>
-            <path d="M 77 77 L 69.5 73.9"
-                  stroke="#ffe08a"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  opacity=".95"/>
+            <!-- Fine bright edge, like the reference -->
+            <path d="M77 24 L68.5 27.1"
+                  stroke="#ffe08a" stroke-width="2.5" stroke-linecap="round" opacity=".95"/>
+            <path d="M77 76 L68.5 72.9"
+                  stroke="#ffe08a" stroke-width="2.5" stroke-linecap="round" opacity=".95"/>
           </svg>
           <span class="brand-copy">
             <span class="wordmark">SOURCE<span>CONDUCT</span></span>
