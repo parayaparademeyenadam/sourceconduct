@@ -206,19 +206,15 @@
 
     .journey-item {
       display: grid;
-      opacity: .72;
-      transform: translateY(10px);
-      transition: opacity .65s ease, transform .65s ease;
+      opacity: 1;
+      transform: none;
+      transition: none;
       grid-template-columns: 110px minmax(0, 760px);
       gap: 34px;
       padding: 48px 0 50px;
       border-bottom: 1px solid var(--line);
     }
 
-    .journey-item:first-child {
-      opacity: 1;
-      transform: translateY(0);
-    }
 
     .journey-number {
       color: var(--teal);
