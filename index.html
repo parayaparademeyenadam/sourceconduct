@@ -49,13 +49,12 @@
       align-items: center;
       text-decoration: none;
       color: var(--ink);
-      max-width: 430px;
     }
 
     .mark {
-      width: 430px;
-      height: auto;
-      flex: 0 1 430px;
+      width: 58px;
+      height: 58px;
+      flex: 0 0 58px;
       display: block;
     }
 
@@ -399,7 +398,23 @@
   <div class="wrap">
     <header>
       <a class="brand" href="#">
-          <img class="mark" src="logo.png" alt="SourceConduct">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M45 14 A22 22 0 1 0 45 50"
+                  fill="none"
+                  stroke="#0a1729"
+                  stroke-width="8"
+                  stroke-linecap="butt"/>
+            <path d="M45 14 L49 17"
+                  fill="none"
+                  stroke="#e5b63f"
+                  stroke-width="2.6"
+                  stroke-linecap="butt"/>
+            <path d="M45 50 L49 47"
+                  fill="none"
+                  stroke="#e5b63f"
+                  stroke-width="2.6"
+                  stroke-linecap="butt"/>
+          </svg>
         </a>
         <a class="header-link" href="mailto:sourceconduct@gmail.com">Let's talk ↗</a>
     </header>
