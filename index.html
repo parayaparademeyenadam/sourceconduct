@@ -330,45 +330,29 @@
       font-size: 13px;
     }
 
-    .footer-contact {
-      display: inline-flex;
-      align-items: stretch;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(255,255,255,.58);
-      overflow: hidden;
-    }
-
-    .footer-item {
+    .footer-simple {
       display: flex;
-      flex-direction: column;
-      gap: 6px;
-      padding: 15px 20px;
-      min-width: 145px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: #8993a3;
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: center;
     }
 
-    .footer-label {
-      color: #9aa3b1;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-
-    .footer-value {
-      color: var(--ink);
-      font-size: 13px;
-      font-weight: 600;
+    .footer-simple a {
+      color: #8993a3;
       text-decoration: none;
     }
 
-    .footer-value:hover {
+    .footer-simple a:hover {
       color: var(--teal);
     }
 
-    .footer-divider {
-      width: 1px;
-      background: var(--line);
+    .footer-separator {
+      color: #b4bbc5;
     }
 
     @media (max-width: 800px) {
@@ -403,9 +387,7 @@
       .footer-cta { padding: 17px 18px; }
       .footer-cta-main { font-size: 15px; }
       .footer-cta-action { padding: 9px 13px; }
-      .footer-contact { width: 100%; }
-      .footer-item { flex: 1; min-width: 0; padding: 14px 16px; }
-      .footer-value { font-size: 12px; overflow-wrap: anywhere; }
+      .footer-simple { gap: 5px; }
     }
   </style>
   <!-- SourceConduct deployment -->
@@ -566,16 +548,12 @@
     </main>
 
     <footer>
-      <div class="footer-contact">
-        <div class="footer-item">
-          <span class="footer-label">Location</span>
-          <span class="footer-value">Belgium</span>
-        </div>
-        <div class="footer-divider"></div>
-        <div class="footer-item">
-          <span class="footer-label">Email</span>
-          <a class="footer-value" href="mailto:sourceconduct@gmail.com">sourceconduct@gmail.com</a>
-        </div>
+      <div class="footer-simple">
+        <span>© 2026 SourceConduct. All rights reserved.</span>
+        <span class="footer-separator">·</span>
+        <span>Belgium</span>
+        <span class="footer-separator">·</span>
+        <a href="mailto:sourceconduct@gmail.com">sourceconduct@gmail.com</a>
       </div>
     </footer>
   </div>
