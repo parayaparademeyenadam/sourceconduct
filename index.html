@@ -53,9 +53,9 @@
     }
 
     .mark {
-      width: 54px;
-      height: 54px;
-      flex: 0 0 54px;
+      width: 64px;
+      height: 64px;
+      flex: 0 0 64px;
       display: block;
     }
 
@@ -72,7 +72,9 @@
       line-height: 1;
     }
 
-    .wordmark span { color: #b88924; }
+    .wordmark span {
+      color: #7f8998;
+    }
 
     .tagline {
       color: #8993a3;
@@ -417,34 +419,68 @@
   <div class="wrap">
     <header>
       <a class="brand" href="#">
-          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+          <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
             <defs>
-              <filter id="goldGlow" x="-80%" y="-80%" width="260%" height="260%">
+              <linearGradient id="cBody" x1="20" y1="20" x2="82" y2="82" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#081322"/>
+                <stop offset="1" stop-color="#18283c"/>
+              </linearGradient>
+
+              <radialGradient id="goldLight">
+                <stop offset="0" stop-color="#ffd968" stop-opacity=".95"/>
+                <stop offset=".35" stop-color="#f6c54f" stop-opacity=".72"/>
+                <stop offset="1" stop-color="#f6c54f" stop-opacity="0"/>
+              </radialGradient>
+
+              <filter id="softGold" x="-150%" y="-150%" width="400%" height="400%">
                 <feGaussianBlur stdDeviation="3.2"/>
+              </filter>
+
+              <filter id="wideGold" x="-150%" y="-150%" width="400%" height="400%">
+                <feGaussianBlur stdDeviation="6"/>
               </filter>
             </defs>
 
-            <!-- Dark C: the complete source/code base -->
-            <path d="M44.5 13.5 A22 22 0 1 0 44.5 50.5"
-                  fill="none" stroke="#172235" stroke-width="7" stroke-linecap="butt"/>
+            <!-- The source/code base -->
+            <path d="M 76 24 A 36 36 0 1 0 76 76"
+                  fill="none"
+                  stroke="url(#cBody)"
+                  stroke-width="17"
+                  stroke-linecap="butt"/>
 
-            <!-- Gold light at both ends of the C -->
-            <path d="M43.8 12.8 L48.2 16.4"
-                  stroke="#f3c34f" stroke-width="5.5" stroke-linecap="round"
-                  opacity=".75" filter="url(#goldGlow)"/>
-            <path d="M43.8 51.2 L48.2 47.6"
-                  stroke="#f3c34f" stroke-width="5.5" stroke-linecap="round"
-                  opacity=".75" filter="url(#goldGlow)"/>
+            <!-- Warm light escaping from both open ends -->
+            <circle cx="76" cy="24" r="14" fill="url(#goldLight)" filter="url(#wideGold)" opacity=".8"/>
+            <circle cx="76" cy="76" r="14" fill="url(#goldLight)" filter="url(#wideGold)" opacity=".8"/>
 
-            <path d="M43.8 12.8 L48.2 16.4"
-                  stroke="#f4c64f" stroke-width="2.8" stroke-linecap="round"/>
-            <path d="M43.8 51.2 L48.2 47.6"
-                  stroke="#f4c64f" stroke-width="2.8" stroke-linecap="round"/>
+            <!-- Focused golden glow on the cut ends -->
+            <path d="M 76 24 A 36 36 0 0 0 67.5 27.4"
+                  fill="none"
+                  stroke="#f5c653"
+                  stroke-width="5"
+                  stroke-linecap="round"
+                  opacity=".65"
+                  filter="url(#softGold)"/>
+            <path d="M 76 76 A 36 36 0 0 1 67.5 72.6"
+                  fill="none"
+                  stroke="#f5c653"
+                  stroke-width="5"
+                  stroke-linecap="round"
+                  opacity=".65"
+                  filter="url(#softGold)"/>
 
-            <!-- Subtle warm glow along the inside of the opening -->
-            <path d="M39.7 19.2 A18 18 0 0 0 39.7 44.8"
-                  fill="none" stroke="#f4c64f" stroke-width="2.2"
-                  stroke-linecap="round" opacity=".55" filter="url(#goldGlow)"/>
+            <!-- Bright inner edge of the two openings -->
+            <path d="M 76 24 A 36 36 0 0 0 69.2 26.8"
+                  fill="none"
+                  stroke="#f7cf63"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  opacity=".95"/>
+            <path d="M 76 76 A 36 36 0 0 1 69.2 73.2"
+                  fill="none"
+                  stroke="#f7cf63"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  opacity=".95"/>
           </svg>
           <span class="brand-copy">
             <span class="wordmark">SOURCE<span>CONDUCT</span></span>
