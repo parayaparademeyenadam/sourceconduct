@@ -17,10 +17,7 @@
     }
 
     * { box-sizing: border-box; }
-    html {
-      scroll-behavior: smooth;
-      scroll-snap-type: y proximity;
-    }
+    html { scroll-behavior: smooth; }
 
 
     body {
@@ -167,11 +164,6 @@
     .cta:hover {
       transform: translateY(-2px);
       box-shadow: 0 18px 38px rgba(11,18,32,.20);
-    }
-
-    .snap-section {
-      scroll-snap-align: start;
-      scroll-snap-stop: normal;
     }
 
     .hero {
@@ -430,10 +422,23 @@
   <div class="wrap">
     <header>
       <a class="brand" href="#">
-        <span class="mark" aria-hidden="true"></span>
-        <span class="wordmark">SOURCE<span>CONDUCT</span></span>
-      </a>
-      <a class="header-link" href="#talk">Let's talk ↗</a>
+          <svg class="mark" viewBox="0 0 48 48" aria-hidden="true">
+            <defs>
+              <linearGradient id="light" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#f3c86b" stop-opacity=".95"/>
+                <stop offset="1" stop-color="#f3c86b" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M28.5 7.5A16.5 16.5 0 1 0 28.5 40.5A13.5 13.5 0 1 1 28.5 7.5Z" fill="#172235"/>
+            <path d="M25 24 L46 13 L46 35 Z" fill="url(#light)"/>
+            <circle cx="25" cy="24" r="3.2" fill="#f3c86b"/>
+          </svg>
+          <span class="brand-copy">
+            <span class="wordmark">SOURCE<span>CONDUCT</span></span>
+            <span class="tagline">Understand the product. Unlock its potential.</span>
+          </span>
+        </a>
+        <a class="header-link" href="mailto:sourceconduct@gmail.com">Let's talk ↗</a>
     </header>
 
     <main>
@@ -453,7 +458,7 @@
           and what they can do next.
         </p>
 
-        <a class="cta" href="#talk">Reach out to us <span>↗</span></a>
+        <a class="cta" href="mailto:sourceconduct@gmail.com">Reach out to us <span>↗</span></a>
 
 
       </section>
@@ -544,54 +549,7 @@
     </footer>
   </div>
 
-  <script>
-    (() => {
-      const sections = Array.from(document.querySelectorAll('.snap-section'));
-      let touchStartY = 0;
-
-      const goTo = (index) => {
-        if (index < 0 || index >= sections.length) return;
-        sections[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
-      };
-
-      // Desktop: one deliberate wheel gesture advances one section.
-      window.addEventListener('wheel', (event) => {
-        if (Math.abs(event.deltaY) < 12) return;
-
-        const current = sections.reduce((best, section, i) => {
-          const distance = Math.abs(section.getBoundingClientRect().top);
-          return distance < best.distance ? { i, distance } : best;
-        }, { i: 0, distance: Infinity }).i;
-
-        const next = event.deltaY > 0 ? current + 1 : current - 1;
-        if (next >= 0 && next < sections.length) {
-          event.preventDefault();
-          goTo(next);
-        }
-      }, { passive: false });
-
-      // Mobile: one swipe advances one section.
-      window.addEventListener('touchstart', (event) => {
-        touchStartY = event.changedTouches[0].clientY;
-      }, { passive: true });
-
-      window.addEventListener('touchend', (event) => {
-        const endY = event.changedTouches[0].clientY;
-        const delta = touchStartY - endY;
-        if (Math.abs(delta) < 45) return;
-
-        const current = sections.reduce((best, section, i) => {
-          const distance = Math.abs(section.getBoundingClientRect().top);
-          return distance < best.distance ? { i, distance } : best;
-        }, { i: 0, distance: Infinity }).i;
-
-        const next = delta > 0 ? current + 1 : current - 1;
-        if (next >= 0 && next < sections.length) {
-          goTo(next);
-        }
-      }, { passive: true });
-    })();
-  </script>
+  
 
 </body>
 </html>
