@@ -259,6 +259,55 @@
       box-shadow: 0 12px 28px rgba(11,18,32,.16);
     }
 
+    .about {
+      min-height: auto;
+      padding: 120px 0 115px;
+      border-top: 1px solid var(--line);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 110px minmax(0, 760px);
+      gap: 34px;
+    }
+
+    .about-number {
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      padding-top: 7px;
+    }
+
+    .about-content {
+      max-width: 800px;
+    }
+
+    .about-content h2 {
+      margin: 0 0 28px;
+      font-size: clamp(34px, 4.5vw, 54px);
+      line-height: 1.05;
+      letter-spacing: -.045em;
+    }
+
+    .about-content p {
+      max-width: 760px;
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .about-highlight {
+      margin-top: 34px;
+      padding-top: 25px;
+      border-top: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.55;
+      font-weight: 650;
+    }
+
     .closing {
       margin-bottom: 58px;
       padding: 55px;
@@ -339,18 +388,28 @@
     }
 
     @media (max-width: 800px) {
-      .journey-item {
+      .journey-item,
+      .about-grid {
         grid-template-columns: 54px minmax(0, 1fr);
         gap: 16px;
+      }
+
+      .journey-item {
         padding: 38px 0 40px;
       }
+
       .hero {
         min-height: calc(100svh - 70px);
         padding: 38px 0 70px;
       }
+
       .section {
         min-height: 100svh;
         padding: 65px 0;
+      }
+
+      .about {
+        padding: 80px 0;
       }
     }
 
@@ -359,14 +418,29 @@
       .header-link { display: none; }
       .brand { max-width: 100%; }
       header { padding: 22px 0; }
+
       .hero {
         min-height: calc(100svh - 70px);
         padding: 30px 0 60px;
       }
+
       .section {
         min-height: 100svh;
         padding: 55px 0;
       }
+
+      .about {
+        padding: 65px 0;
+      }
+
+      .about-grid {
+        display: block;
+      }
+
+      .about-number {
+        margin-bottom: 18px;
+      }
+
       .footer-simple { gap: 5px; }
     }
   </style>
@@ -467,6 +541,49 @@
               <a class="section-cta" href="mailto:sourceconduct@gmail.com">Let's talk ↗</a>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section class="about">
+        <div class="about-grid">
+          <div class="about-number">03</div>
+          <div class="about-content">
+            <div class="section-label">Who we are</div>
+            <h2>Technical enough to understand the code. Experienced enough to understand what happens next.</h2>
+
+            <p>
+              SourceConduct was founded by a computer engineer with a PhD who started
+              his career as a software developer, working hands-on with the technologies
+              and open source components that power modern software.
+            </p>
+
+            <p>
+              That perspective later moved to the other side of the table: open source
+              licensing and enforcement. He built and developed a license compliance
+              program for a leading global open source software company, turning the
+              company's open source adoption and licensing issues into a structured,
+              scalable business function and a significant source of revenue.
+            </p>
+
+            <p>
+              Over the years, he has worked with senior lawyers and legal teams across
+              jurisdictions on complex open source licensing matters, helping companies
+              understand their exposure, addressing compliance issues and bringing
+              licensing disputes to resolution.
+            </p>
+
+            <p>
+              This combination of engineering experience, licensing expertise and
+              commercial perspective is what SourceConduct brings to the table.
+              We understand the software, the license and the business context around it.
+            </p>
+
+            <div class="about-highlight">
+              We don't start with a legal theory. We start by understanding what the
+              software actually does, how it is being used, and what the license means
+              in that real-world context.
+            </div>
+          </div>
         </div>
       </section>
     </main>
