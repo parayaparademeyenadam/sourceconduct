@@ -19,7 +19,6 @@
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
-
     body {
       margin: 0;
       color: var(--ink);
@@ -36,7 +35,6 @@
       margin: 0 auto;
     }
 
-    /* Brand */
     header {
       display: flex;
       align-items: center;
@@ -49,13 +47,6 @@
       align-items: center;
       text-decoration: none;
       color: var(--ink);
-    }
-
-    .mark {
-      width: 58px;
-      height: 58px;
-      flex: 0 0 58px;
-      display: block;
     }
 
     .brand-copy {
@@ -90,10 +81,14 @@
       font-weight: 600;
     }
 
-    /* Hero */
     .hero {
       padding: 108px 0 105px;
       max-width: 1000px;
+      min-height: calc(100vh - 92px);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 54px;
     }
 
     .eyebrow {
@@ -161,15 +156,6 @@
       box-shadow: 0 18px 38px rgba(11,18,32,.20);
     }
 
-    .hero {
-      min-height: calc(100vh - 92px);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding-top: 54px;
-    }
-
-    /* Scenarios */
     .section {
       min-height: 100vh;
       display: flex;
@@ -213,7 +199,6 @@
       padding: 48px 0 50px;
       border-bottom: 1px solid var(--line);
     }
-
 
     .journey-number {
       color: var(--teal);
@@ -274,7 +259,6 @@
       box-shadow: 0 12px 28px rgba(11,18,32,.16);
     }
 
-    /* Closing */
     .closing {
       margin-bottom: 58px;
       padding: 55px;
@@ -373,7 +357,6 @@
     @media (max-width: 560px) {
       .wrap { width: min(100% - 30px, 1120px); }
       .header-link { display: none; }
-      .mark { width: min(100%, 360px); flex-basis: auto; }
       .brand { max-width: 100%; }
       header { padding: 22px 0; }
       .hero {
@@ -384,43 +367,21 @@
         min-height: 100svh;
         padding: 55px 0;
       }
-      .footer-cta-wrap { margin-bottom: 22px; }
-      .footer-cta { padding: 17px 18px; }
-      .footer-cta-main { font-size: 15px; }
-      .footer-cta-action { padding: 9px 13px; }
       .footer-simple { gap: 5px; }
     }
   </style>
-  <!-- SourceConduct deployment -->
 </head>
 
 <body>
   <div class="wrap">
     <header>
       <a class="brand" href="#">
-          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
-            <path d="M45 14 A22 22 0 1 0 45 50"
-                  fill="none"
-                  stroke="#0a1729"
-                  stroke-width="8"
-                  stroke-linecap="butt"/>
-            <path d="M45 14 L49 17"
-                  fill="none"
-                  stroke="#e5b63f"
-                  stroke-width="2.6"
-                  stroke-linecap="butt"/>
-            <path d="M45 50 L49 47"
-                  fill="none"
-                  stroke="#e5b63f"
-                  stroke-width="2.6"
-                  stroke-linecap="butt"/>
-          </svg>
-          <span class="brand-copy">
-            <span class="wordmark">SOURCE<span>CONDUCT</span></span>
-            <span class="tagline">Understand the product. Unlock its potential.</span>
-          </span>
-        </a>
-        <a class="header-link" href="mailto:sourceconduct@gmail.com">Let's talk ↗</a>
+        <span class="brand-copy">
+          <span class="wordmark">SOURCE<span>CONDUCT</span></span>
+          <span class="tagline">Understand the product. Unlock its potential.</span>
+        </span>
+      </a>
+      <a class="header-link" href="mailto:sourceconduct@gmail.com">Let's talk ↗</a>
     </header>
 
     <main>
@@ -439,8 +400,6 @@
         </p>
 
         <a class="cta" href="mailto:sourceconduct@gmail.com">Reach out to us <span>↗</span></a>
-
-
       </section>
 
       <section class="section snap-section">
@@ -510,8 +469,6 @@
           </article>
         </div>
       </section>
-
-
     </main>
 
     <footer>
@@ -524,8 +481,5 @@
       </div>
     </footer>
   </div>
-
-  
-
 </body>
 </html>
