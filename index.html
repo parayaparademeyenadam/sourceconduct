@@ -246,21 +246,6 @@
       opacity: 1;
     }
 
-    .journey-item::after {
-      content: "+";
-      display: block;
-      margin-top: 20px;
-      color: var(--teal);
-      font-size: 20px;
-      font-weight: 500;
-      line-height: 1;
-      transition: transform .25s ease;
-    }
-
-    .journey-item.open::after {
-      transform: rotate(45deg);
-    }
-
     .section-cta {
       display: none;
     }
@@ -330,6 +315,45 @@
       font-size: 16px;
       line-height: 1.5;
       font-weight: 650;
+    }
+
+    .about {
+      cursor: pointer;
+    }
+
+    .about-content > p,
+    .about-highlight {
+      max-height: 0;
+      overflow: hidden;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 0;
+      opacity: 0;
+      transition: max-height .35s ease, margin .35s ease, padding .35s ease, opacity .25s ease;
+    }
+
+    .about.open .about-content > p {
+      max-height: 180px;
+      margin-bottom: 16px;
+      opacity: 1;
+    }
+
+    .about.open .about-highlight {
+      max-height: 180px;
+      margin-top: 28px;
+      padding-top: 20px;
+      opacity: 1;
+    }
+
+    .about-content h2 {
+      cursor: pointer;
+    }
+
+    .about-content h2::after {
+      content: " ↗";
+      color: var(--teal);
+      font-size: .55em;
+      white-space: nowrap;
     }
 
     .closing {
@@ -609,6 +633,11 @@
         item.addEventListener('click', () => {
           item.classList.toggle('open');
         });
+      });
+
+      const about = document.querySelector('.about');
+      about.addEventListener('click', () => {
+        about.classList.toggle('open');
       });
     </script>
 
