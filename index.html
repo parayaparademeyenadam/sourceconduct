@@ -626,7 +626,21 @@
     <script>
       document.querySelectorAll('.journey-item').forEach((item) => {
         item.addEventListener('click', () => {
+          const wasOpen = item.classList.contains('open');
           item.classList.toggle('open');
+
+          if (!wasOpen) {
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                const rect = item.getBoundingClientRect();
+                const targetY = window.scrollY + rect.top - (window.innerHeight - rect.height) / 2;
+                window.scrollTo({
+                  top: Math.max(0, targetY),
+                  behavior: 'smooth'
+                });
+              });
+            });
+          }
         });
       });
 
