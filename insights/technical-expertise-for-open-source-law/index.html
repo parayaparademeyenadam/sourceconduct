@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Source Licensing Disputes Need Technical Insight | SourceConduct</title>
+  <meta name="description" content="SourceConduct helps law firms understand the technical realities behind open source licenses, software architecture, and licensing disputes so they can better advise their clients.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href="https://sourceconduct.com/insights/technical-expertise-for-open-source-law/">
+  <style>
+    :root{--ink:#0b1220;--muted:#657084;--soft:#f5f7fa;--line:rgba(11,18,32,.10);--teal:#16a394;--blue:#4268d8;--gold:#d6a62a}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:radial-gradient(circle at 85% 5%,rgba(66,104,216,.10),transparent 26%),var(--soft);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    .wrap{width:min(1120px,calc(100% - 44px));margin:0 auto}header{padding:22px 0;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:20}.brand{text-decoration:none;color:var(--ink);display:inline-flex;flex-direction:column;gap:4px}.wordmark{font-size:17px;font-weight:800;letter-spacing:.08em}.wordmark span{color:var(--gold)}.tagline{color:#8993a3;font-size:8px;font-weight:600}
+    .menu-toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:6px;width:46px;height:46px;align-items:center;border:1px solid var(--line);border-radius:50%;background:rgba(255,255,255,.75);cursor:pointer;transition:background .2s ease,border-color .2s ease}.menu-toggle:hover{background:#e6f7f4;border-color:rgba(22,163,148,.45)}.menu-toggle span{display:block;width:17px;height:2px;border-radius:2px;background:var(--ink);transition:transform .2s ease}.menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(4px) rotate(45deg)}.menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-4px) rotate(-45deg)}.site-menu{position:absolute;top:calc(100% + 8px);right:0;width:min(340px,calc(100vw - 30px));padding:14px;border:1px solid rgba(11,18,32,.09);border-radius:20px;background:rgba(255,255,255,.97);box-shadow:0 22px 60px rgba(11,18,32,.16);backdrop-filter:blur(16px);display:none}.site-menu.open{display:block;animation:menuIn .18s ease-out}.site-menu a{display:flex;align-items:center;justify-content:space-between;padding:14px 15px;border-radius:12px;color:var(--ink);text-decoration:none;font-size:15px;font-weight:700}.site-menu a:hover{background:#e8f7f4;color:#087f74}.site-menu a.menu-contact{margin-top:8px;background:var(--ink);color:white}.site-menu a.menu-contact:hover{background:var(--teal);color:white}@keyframes menuIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+    .back{display:inline-block;margin:24px 0;color:var(--muted);text-decoration:none;font-size:14px;font-weight:650}.back:hover{color:var(--teal)}.article-head{max-width:850px;padding:28px 0 38px}.eyebrow{color:var(--teal);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}
+    h1{font-size:clamp(42px,6.6vw,72px);line-height:1.02;letter-spacing:-.055em;margin:0 0 22px}.dek{font-size:clamp(19px,2.4vw,24px);line-height:1.5;color:var(--muted);margin:0;max-width:780px}
+    .article-body{max-width:760px;padding:0 0 55px;font-size:17px;line-height:1.8;color:#273246}.article-body h2{font-size:clamp(27px,3vw,35px);line-height:1.15;letter-spacing:-.035em;margin:40px 0 14px;color:var(--ink)}.article-body p{margin:0 0 19px}.article-body strong{color:var(--ink)}.callout{margin:28px 0;padding:22px 25px;border-left:3px solid var(--teal);background:rgba(255,255,255,.7);font-size:18px;line-height:1.65;color:var(--ink)}
+    .cta{margin:8px 0 70px;padding:30px;border-radius:20px;background:var(--ink);color:#fff}.cta h2{margin:0 0 10px;font-size:29px;letter-spacing:-.035em}.cta p{margin:0 0 20px;color:#c3cad5;line-height:1.6}.cta a{display:inline-block;padding:12px 17px;border-radius:999px;background:#fff;color:var(--ink);text-decoration:none;font-weight:750;font-size:14px}
+    footer{border-top:1px solid var(--line);padding:24px 0 32px;color:#8993a3;font-size:12px;text-align:center}
+    @media(max-width:600px){.wrap{width:calc(100% - 30px)}.article-head{padding-top:18px}.article-body{font-size:16px}.cta{padding:24px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header><a class="brand" href="/"><span class="wordmark">SOURCE<span>CONDUCT</span></span><span class="tagline">Understand the product. Unlock its potential.</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-menu"><span></span><span></span></button>
+    <nav class="site-menu" id="site-menu" aria-label="Main navigation">
+      <a href="/">Home <span>↗</span></a><a href="/#services">Where we can help <span>↗</span></a><a href="/insights/">Insights <span>↗</span></a><a href="/#about">Who we are <span>↗</span></a><a class="menu-contact" href="mailto:sourceconduct@gmail.com">Let's talk <span>↗</span></a>
+    </nav></header>
+    <a class="back" href="/insights/">← All insights</a>
+    <main>
+      <div class="article-head">
+        <div class="eyebrow">Technical insight for legal counsel</div>
+        <h1>Open source licensing disputes need technical insight.</h1>
+        <p class="dek">The legal analysis is only as strong as the understanding of the software behind it. SourceConduct helps law firms connect open source license terms with technical reality.</p>
+      </div>
+      <article class="article-body">
+        <p>When a company faces an open source licensing dispute, it will often turn to experienced legal counsel. But even the strongest legal team may face a difficult question: what does the license mean when applied to the way the software actually works?</p>
+        <p>Open source licenses do not operate in a vacuum. Understanding their implications can require a close look at software architecture, dependencies, how a library is integrated, how components communicate, and how the product is deployed or offered to users. Small technical distinctions can materially affect the licensing analysis.</p>
+        <p>A library incorporated into an application may raise different questions from a standalone product or a network-hosted service. Whether software has been modified, how separate components interact, and what is actually distributed or made available can all matter. The answers cannot always be found by reading the license text alone.</p>
+        <div class="callout"><strong>That is where SourceConduct can help.</strong> We bring software engineering and open source licensing experience to help legal teams understand the technical facts behind the license and assess how those facts may affect their advice.</div>
+        <p>We work alongside legal counsel, helping them examine the software, ask the right technical questions, and connect license terms to real-world implementation and use. Our role is not to replace legal advice, but to provide the technical understanding that can make it more informed, precise, and practical.</p>
+        <p>If your firm is advising a client on an open source licensing question or dispute, talk to SourceConduct. A technically grounded view can help you evaluate the situation more clearly and give your client advice that reflects both the legal terms and the software itself.</p>
+      </article>
+      <section class="cta">
+        <h2>Need a technical perspective on an open source matter?</h2>
+        <p>SourceConduct supports law firms with software engineering insight and practical open source licensing expertise.</p>
+        <a href="mailto:sourceconduct@gmail.com">Talk to SourceConduct ↗</a>
+      </section>
+    </main>
+    <footer>© 2026 SourceConduct. All rights reserved. · <a href="/" style="color:inherit;text-decoration:none">sourceconduct.com</a></footer>
+  </div>
+<script>
+  const menuToggle=document.querySelector('.menu-toggle'),siteMenu=document.querySelector('.site-menu');
+  menuToggle.addEventListener('click',()=>{const isOpen=menuToggle.getAttribute('aria-expanded')==='true';menuToggle.setAttribute('aria-expanded',String(!isOpen));menuToggle.setAttribute('aria-label',isOpen?'Open navigation menu':'Close navigation menu');siteMenu.classList.toggle('open',!isOpen)});
+  siteMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{siteMenu.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Open navigation menu')}));
+  document.addEventListener('click',event=>{if(!siteMenu.contains(event.target)&&!menuToggle.contains(event.target)){siteMenu.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Open navigation menu')}});
+</script></body>
+</html>
