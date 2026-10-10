@@ -79,7 +79,7 @@
     }
     .site-menu.open { display: block; animation: menuIn .18s ease-out; }
     .site-menu a { display: flex; align-items: center; justify-content: space-between; padding: 14px 15px; border-radius: 12px; color: var(--ink); text-decoration: none; font-size: 15px; font-weight: 700; }
-    .site-menu a:hover { background: #e8f7f4; color: #087f74; }
+    .site-menu a:hover { background: #e8f7f4; color: #087f74; }.site-menu .menu-group{margin:0}.site-menu .menu-group>a{margin-bottom:2px}.site-menu .submenu{margin:0 0 8px 15px;padding:2px 0 3px 10px;border-left:2px solid rgba(22,163,148,.28)}.site-menu .submenu a{display:block;padding:9px 10px;border-radius:8px;font-size:12px;line-height:1.45;font-weight:600;color:var(--muted)}.site-menu .submenu a:hover{background:#e8f7f4;color:#087f74}
     .site-menu a.menu-contact { margin-top: 8px; background: var(--ink); color: white; }
     .site-menu a.menu-contact:hover { background: var(--teal); color: white; }
     @keyframes menuIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
@@ -582,7 +582,7 @@
       <nav class="site-menu" id="site-menu" aria-label="Main navigation">
         <a href="/#home">Home <span>↗</span></a>
         <a href="/#services">Where we can help <span>↗</span></a>
-        <a href="/insights/">Insights <span>↗</span></a>
+        <div class="menu-group"><a href="/insights/">Insights <span>＋</span></a><div class="submenu"><a href="/insights/open-source-as-a-business-model/">Open source is a business model, not a giveaway</a><a href="/insights/technical-expertise-for-open-source-law/">Open source licensing disputes need technical insight</a></div></div>
         <a href="/#about">Who we are <span>↗</span></a>
         <a class="menu-contact" href="mailto:sourceconduct@gmail.com">Let's talk <span>↗</span></a>
       </nav>
