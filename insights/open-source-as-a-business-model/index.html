@@ -10,7 +10,8 @@
   <style>
     :root{--ink:#0b1220;--muted:#657084;--soft:#f5f7fa;--line:rgba(11,18,32,.10);--teal:#16a394;--blue:#4268d8;--gold:#d6a62a}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:radial-gradient(circle at 85% 5%,rgba(66,104,216,.10),transparent 26%),var(--soft);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
-    .wrap{width:min(1120px,calc(100% - 44px));margin:0 auto}header{padding:22px 0}.brand{text-decoration:none;color:var(--ink);display:inline-flex;flex-direction:column;gap:4px}.wordmark{font-size:17px;font-weight:800;letter-spacing:.08em}.wordmark span{color:var(--gold)}.tagline{color:#8993a3;font-size:8px;font-weight:600}
+    .wrap{width:min(1120px,calc(100% - 44px));margin:0 auto}header{padding:22px 0;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:20}.brand{text-decoration:none;color:var(--ink);display:inline-flex;flex-direction:column;gap:4px}.wordmark{font-size:17px;font-weight:800;letter-spacing:.08em}.wordmark span{color:var(--gold)}.tagline{color:#8993a3;font-size:8px;font-weight:600}
+    .menu-toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:6px;width:46px;height:46px;align-items:center;border:1px solid var(--line);border-radius:50%;background:rgba(255,255,255,.75);cursor:pointer;transition:background .2s ease,border-color .2s ease}.menu-toggle:hover{background:#e6f7f4;border-color:rgba(22,163,148,.45)}.menu-toggle span{display:block;width:17px;height:2px;border-radius:2px;background:var(--ink);transition:transform .2s ease}.menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(4px) rotate(45deg)}.menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-4px) rotate(-45deg)}.site-menu{position:absolute;top:calc(100% + 8px);right:0;width:min(340px,calc(100vw - 30px));padding:14px;border:1px solid rgba(11,18,32,.09);border-radius:20px;background:rgba(255,255,255,.97);box-shadow:0 22px 60px rgba(11,18,32,.16);backdrop-filter:blur(16px);display:none}.site-menu.open{display:block;animation:menuIn .18s ease-out}.site-menu a{display:flex;align-items:center;justify-content:space-between;padding:14px 15px;border-radius:12px;color:var(--ink);text-decoration:none;font-size:15px;font-weight:700}.site-menu a:hover{background:#e8f7f4;color:#087f74}.site-menu a.menu-contact{margin-top:8px;background:var(--ink);color:white}.site-menu a.menu-contact:hover{background:var(--teal);color:white}@keyframes menuIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
     .back{display:inline-block;margin:24px 0;color:var(--muted);text-decoration:none;font-size:14px;font-weight:650}.back:hover{color:var(--teal)}
     .article-head{max-width:850px;padding:28px 0 38px}.eyebrow{color:var(--teal);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}
     h1{font-size:clamp(42px,6.6vw,72px);line-height:1.02;letter-spacing:-.055em;margin:0 0 22px} .dek{font-size:clamp(19px,2.4vw,24px);line-height:1.5;color:var(--muted);margin:0;max-width:780px}
@@ -22,7 +23,11 @@
 </head>
 <body>
   <div class="wrap">
-    <header><a class="brand" href="/"><span class="wordmark">SOURCE<span>CONDUCT</span></span><span class="tagline">Understand the product. Unlock its potential.</span></a></header>
+    <header><a class="brand" href="/"><span class="wordmark">SOURCE<span>CONDUCT</span></span><span class="tagline">Understand the product. Unlock its potential.</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-menu"><span></span><span></span></button>
+    <nav class="site-menu" id="site-menu" aria-label="Main navigation">
+      <a href="/">Home <span>↗</span></a><a href="/#services">Where we can help <span>↗</span></a><a href="/insights/">Insights <span>↗</span></a><a href="/#about">Who we are <span>↗</span></a><a class="menu-contact" href="mailto:sourceconduct@gmail.com">Let's talk <span>↗</span></a>
+    </nav></header>
     <a class="back" href="/insights/">← All insights</a>
     <main>
       <div class="article-head">
@@ -88,5 +93,10 @@
     </main>
     <footer>© 2026 SourceConduct. All rights reserved. · <a href="/" style="color:inherit;text-decoration:none">sourceconduct.com</a></footer>
   </div>
-</body>
+<script>
+  const menuToggle=document.querySelector('.menu-toggle'),siteMenu=document.querySelector('.site-menu');
+  menuToggle.addEventListener('click',()=>{const isOpen=menuToggle.getAttribute('aria-expanded')==='true';menuToggle.setAttribute('aria-expanded',String(!isOpen));menuToggle.setAttribute('aria-label',isOpen?'Open navigation menu':'Close navigation menu');siteMenu.classList.toggle('open',!isOpen)});
+  siteMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{siteMenu.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Open navigation menu')}));
+  document.addEventListener('click',event=>{if(!siteMenu.contains(event.target)&&!menuToggle.contains(event.target)){siteMenu.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Open navigation menu')}});
+  </script></body>
 </html>
