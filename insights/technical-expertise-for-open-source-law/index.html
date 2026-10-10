@@ -15,9 +15,9 @@
     .back{display:inline-block;margin:24px 0;color:var(--muted);text-decoration:none;font-size:14px;font-weight:650}.back:hover{color:var(--teal)}.article-head{max-width:850px;padding:28px 0 38px}.eyebrow{color:var(--teal);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}
     h1{font-size:clamp(42px,6.6vw,72px);line-height:1.02;letter-spacing:-.055em;margin:0 0 22px}.dek{font-size:clamp(19px,2.4vw,24px);line-height:1.5;color:var(--muted);margin:0;max-width:780px}
     .article-body{max-width:760px;padding:0 0 55px;font-size:17px;line-height:1.8;color:#273246}.article-body h2{font-size:clamp(27px,3vw,35px);line-height:1.15;letter-spacing:-.035em;margin:40px 0 14px;color:var(--ink)}.article-body p{margin:0 0 19px}.article-body strong{color:var(--ink)}.callout{margin:28px 0;padding:22px 25px;border-left:3px solid var(--teal);background:rgba(255,255,255,.7);font-size:18px;line-height:1.65;color:var(--ink)}
-    .cta{margin:8px 0 70px;padding:30px;border-radius:20px;background:var(--ink);color:#fff}.cta h2{margin:0 0 10px;font-size:29px;letter-spacing:-.035em}.cta p{margin:0 0 20px;color:#c3cad5;line-height:1.6}.cta a{display:inline-block;padding:12px 17px;border-radius:999px;background:#fff;color:var(--ink);text-decoration:none;font-weight:750;font-size:14px}
+    .process{margin:0 0 44px;padding:28px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.65)}.process-heading{max-width:610px;margin-bottom:24px}.process-heading h2{font-size:clamp(27px,3vw,35px);line-height:1.15;letter-spacing:-.035em;margin:0 0 10px}.process-heading p{color:var(--muted);line-height:1.6;margin:0}.process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.process-step{padding:17px 15px;border-radius:15px;background:#fff;border:1px solid rgba(11,18,32,.07)}.step-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px}.step-number{font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--teal)}.step-check{display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#e5f7f3;color:#078779;font-size:14px;font-weight:800}.process-step h3{font-size:16px;line-height:1.3;margin:0 0 8px;letter-spacing:-.02em}.process-step p{font-size:13px;line-height:1.6;color:var(--muted);margin:0}.process-note{margin:22px 0 0;padding-top:18px;border-top:1px solid var(--line);font-weight:750;color:var(--ink);font-size:16px}.cta{margin:8px 0 70px;padding:30px;border-radius:20px;background:var(--ink);color:#fff}.cta h2{margin:0 0 10px;font-size:29px;letter-spacing:-.035em}.cta p{margin:0 0 20px;color:#c3cad5;line-height:1.6}.cta a{display:inline-block;padding:12px 17px;border-radius:999px;background:#fff;color:var(--ink);text-decoration:none;font-weight:750;font-size:14px}
     footer{border-top:1px solid var(--line);padding:24px 0 32px;color:#8993a3;font-size:12px;text-align:center}
-    @media(max-width:600px){.wrap{width:calc(100% - 30px)}.article-head{padding-top:18px}.article-body{font-size:16px}.cta{padding:24px}}
+    @media(max-width:800px){.process-grid{grid-template-columns:repeat(2,minmax(0,1fr)}}@media(max-width:600px){.wrap{width:calc(100% - 30px)}.article-head{padding-top:18px}.article-body{font-size:16px}.cta{padding:24px}.process{padding:20px 16px}.process-grid{grid-template-columns:1fr}.process-step{padding:16px}}
   </style>
 </head>
 <body>
@@ -35,13 +35,30 @@
         <p class="dek">The legal analysis is only as strong as the understanding of the software behind it. SourceConduct helps law firms connect open source license terms with technical reality.</p>
       </div>
       <article class="article-body">
-        <p>When a company faces an open source licensing dispute, it will often turn to experienced legal counsel. But even the strongest legal team may face a difficult question: what does the license mean when applied to the way the software actually works?</p>
-        <p>Open source licenses do not operate in a vacuum. Understanding their implications can require a close look at software architecture, dependencies, how a library is integrated, how components communicate, and how the product is deployed or offered to users. Small technical distinctions can materially affect the licensing analysis.</p>
-        <p>A library incorporated into an application may raise different questions from a standalone product or a network-hosted service. Whether software has been modified, how separate components interact, and what is actually distributed or made available can all matter. The answers cannot always be found by reading the license text alone.</p>
-        <div class="callout"><strong>That is where SourceConduct can help.</strong> We bring software engineering and open source licensing experience to help legal teams understand the technical facts behind the license and assess how those facts may affect their advice.</div>
-        <p>We work alongside legal counsel, helping them examine the software, ask the right technical questions, and connect license terms to real-world implementation and use. Our role is not to replace legal advice, but to provide the technical understanding that can make it more informed, precise, and practical.</p>
-        <p>If your firm is advising a client on an open source licensing question or dispute, talk to SourceConduct. A technically grounded view can help you evaluate the situation more clearly and give your client advice that reflects both the legal terms and the software itself.</p>
+        <p>When a company faces an open source licensing dispute, it turns to legal counsel for advice. But reaching a sound legal position can depend on understanding how the software actually works.</p>
+        <p><strong>What does the license mean in the context of the client's software architecture, and what is the technical evidence telling us?</strong></p>
+        <p>A library listed as a dependency is not necessarily used in the same way as a library integrated into a distributed application. A standalone product raises different questions from a component embedded in a larger system. How components interact, what is distributed, and how software is deployed can all affect the technical analysis.</p>
+        <p>These questions require more than reading the license text. They require an understanding of software engineering alongside practical knowledge of open source licensing.</p>
+        <h2>A technical partner for legal counsel</h2>
+        <p>SourceConduct works alongside law firms handling open source licensing questions and disputes. We help legal teams investigate the technical facts, understand software architecture and dependencies, assess technical claims, and connect those findings to the relevant license terms.</p>
+        <p>Our role is to give counsel a clearer technical foundation for its legal analysis, identify questions that need further investigation, and help distinguish assumptions from what the available evidence actually supports.</p>
+        <p>We bring together software engineering experience and practical open source licensing expertise. We understand that the technical analysis must serve the legal strategy, not operate in isolation from it.</p>
+        <p>If you are advising a client on an open source licensing matter and need a specialist technical perspective, let's talk.</p>
       </article>
+      <section class="process">
+        <div class="process-heading">
+          <div class="eyebrow">Our approach</div>
+          <h2>From technical questions to clearer advice.</h2>
+          <p>We work with counsel at each stage, with the scope shaped around the matter.</p>
+        </div>
+        <div class="process-grid">
+          <div class="process-step"><div class="step-top"><span class="step-number">01</span><span class="step-check">✓</span></div><h3>Scope the matter</h3><p>Understand the licensing question, review the available context, and complete appropriate conflict and engagement checks.</p></div>
+          <div class="process-step"><div class="step-top"><span class="step-number">02</span><span class="step-check">✓</span></div><h3>Examine the technology</h3><p>Review relevant architecture, dependencies, implementation, deployment, and technical evidence.</p></div>
+          <div class="process-step"><div class="step-top"><span class="step-number">03</span><span class="step-check">✓</span></div><h3>Connect facts to the license</h3><p>Identify which technical facts may matter under the applicable license and where assumptions need testing.</p></div>
+          <div class="process-step"><div class="step-top"><span class="step-number">04</span><span class="step-check">✓</span></div><h3>Support legal counsel</h3><p>Present clear findings and discuss their technical implications so counsel can use them in its legal analysis.</p></div>
+        </div>
+        <p class="process-note">You lead the legal strategy. We help you understand the technology behind it.</p>
+      </section>
       <section class="cta">
         <h2>Need a technical perspective on an open source matter?</h2>
         <p>SourceConduct supports law firms with software engineering insight and practical open source licensing expertise.</p>
