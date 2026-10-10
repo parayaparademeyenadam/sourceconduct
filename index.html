@@ -41,7 +41,48 @@
       align-items: center;
       justify-content: space-between;
       padding: 18px 0;
+      position: relative;
+      z-index: 20;
     }
+
+    .menu-toggle {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      width: 48px;
+      height: 48px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: rgba(255,255,255,.72);
+      cursor: pointer;
+      transition: background .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .menu-toggle:hover { background: #e6f7f4; border-color: rgba(22,163,148,.45); transform: translateY(-1px); }
+    .menu-toggle span { display: block; width: 17px; height: 2px; border-radius: 2px; background: var(--ink); transition: transform .2s ease; }
+    .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(4px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-4px) rotate(-45deg); }
+
+    .site-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      width: min(340px, calc(100vw - 30px));
+      padding: 14px;
+      border: 1px solid rgba(11,18,32,.09);
+      border-radius: 20px;
+      background: rgba(255,255,255,.97);
+      box-shadow: 0 22px 60px rgba(11,18,32,.16);
+      backdrop-filter: blur(16px);
+      display: none;
+    }
+    .site-menu.open { display: block; animation: menuIn .18s ease-out; }
+    .site-menu a { display: flex; align-items: center; justify-content: space-between; padding: 14px 15px; border-radius: 12px; color: var(--ink); text-decoration: none; font-size: 15px; font-weight: 700; }
+    .site-menu a:hover { background: #e8f7f4; color: #087f74; }
+    .site-menu a.menu-contact { margin-top: 8px; background: var(--ink); color: white; }
+    .site-menu a.menu-contact:hover { background: var(--teal); color: white; }
+    @keyframes menuIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
 
     .brand {
       display: inline-flex;
@@ -194,7 +235,13 @@
       padding: 24px 26px 27px;
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.32);
+      position: relative;
     }
+    .journey-item:nth-child(1) { box-shadow: inset 0 3px 0 #16a394; }
+    .journey-item:nth-child(2) { box-shadow: inset 0 3px 0 #4268d8; }
+    .journey-item:nth-child(3) { box-shadow: inset 0 3px 0 #d6a62a; }
+    .journey-item:nth-child(4) { box-shadow: inset 0 3px 0 #d77d63; }
 
     .journey-number {
       display: none;
@@ -273,6 +320,21 @@
       box-shadow: 0 12px 28px rgba(11,18,32,.16);
     }
 
+    .insights-preview {
+      position: relative;
+      isolation: isolate;
+    }
+    .insights-preview::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 28px;
+      bottom: 20px;
+      left: -30px;
+      right: -30px;
+      border-radius: 28px;
+      background: linear-gradient(115deg, rgba(22,163,148,.10), rgba(66,104,216,.08) 58%, rgba(214,166,42,.08));
+    }
     .insight-link {
       display: block;
       max-width: 760px;
@@ -295,6 +357,7 @@
     .about {
       padding: 58px 0 65px;
       border-top: 1px solid var(--line);
+      background: linear-gradient(110deg, rgba(66,104,216,.035), transparent 65%);
     }
 
     .about-grid {
@@ -507,16 +570,26 @@
 <body>
   <div class="wrap">
     <header>
-      <a class="brand" href="#">
+      <a class="brand" href="/">
         <span class="brand-copy">
           <span class="wordmark">SOURCE<span>CONDUCT</span></span>
           <span class="tagline">Understand the product. Unlock its potential.</span>
         </span>
       </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-menu">
+        <span></span><span></span>
+      </button>
+      <nav class="site-menu" id="site-menu" aria-label="Main navigation">
+        <a href="/#home">Home <span>↗</span></a>
+        <a href="/#services">Where we can help <span>↗</span></a>
+        <a href="/insights/">Insights <span>↗</span></a>
+        <a href="/#about">Who we are <span>↗</span></a>
+        <a class="menu-contact" href="mailto:sourceconduct@gmail.com">Let's talk <span>↗</span></a>
+      </nav>
     </header>
 
     <main>
-      <section class="hero snap-section">
+      <section class="hero snap-section" id="home">
         <h1>
           When open source software and the licensing gets
           <span class="accent">complicated,</span>
@@ -533,7 +606,7 @@
         <a class="cta" href="mailto:sourceconduct@gmail.com">Reach out to us <span>↗</span></a>
       </section>
 
-      <section class="section snap-section">
+      <section class="section snap-section" id="services">
         <div class="section-intro">
           <h2 class="section-title">Where we can help</h2>
         </div>
@@ -600,7 +673,7 @@
         </div>
       </section>
 
-      <section class="section insights-preview">
+      <section class="section insights-preview" id="insights">
         <div class="section-intro">
           <div class="section-label">Insights</div>
           <h2 class="section-title">Open source, understood.</h2>
@@ -614,7 +687,7 @@
         <a class="insights-all" href="/insights/">Explore all insights ↗</a>
       </section>
 
-      <section class="about">
+      <section class="about" id="about">
         <div class="about-grid">
           <div class="about-content">
             <div class="section-label">Who we are</div>
@@ -658,6 +731,29 @@
     </main>
 
     <script>
+      const menuToggle = document.querySelector('.menu-toggle');
+      const siteMenu = document.querySelector('.site-menu');
+      menuToggle.addEventListener('click', () => {
+        const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
+        siteMenu.classList.toggle('open', !isOpen);
+      });
+      siteMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          siteMenu.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.setAttribute('aria-label', 'Open navigation menu');
+        });
+      });
+      document.addEventListener('click', (event) => {
+        if (!siteMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+          siteMenu.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.setAttribute('aria-label', 'Open navigation menu');
+        }
+      });
+
       document.querySelectorAll('.journey-item').forEach((item) => {
         item.addEventListener('click', () => {
           const wasOpen = item.classList.contains('open');
