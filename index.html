@@ -237,10 +237,10 @@
     .journey-item:nth-child(3) { box-shadow:inset 0 3px 0 #d6a62a; }
     .journey-item:nth-child(4) { box-shadow:inset 0 3px 0 #d77d63; }
     .journey-item:hover { background:#fff; transform:translateY(-2px); border-color:rgba(22,163,148,.38); }
-    .journey-number { display:block; margin-bottom:22px; color:#a0a9b7; font-size:12px; font-weight:800; letter-spacing:.1em; }
+    .journey-number { display:inline-block; margin-right:7px; color:#16a394; font-size:.72em; font-weight:800; letter-spacing:0; white-space:nowrap; }
     .journey-content { display:flex; flex:1; flex-direction:column; align-items:flex-start; max-width:none; }
     .journey-kicker { margin-bottom:12px; color:var(--teal); font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
-    .journey-content h3 { margin:0 0 14px; font-size:clamp(19px,1.7vw,23px); line-height:1.22; letter-spacing:-.025em; font-weight:700; }
+    .journey-content h3 { margin:0 0 14px; font-size:clamp(19px,1.7vw,23px); line-height:1.3; letter-spacing:-.025em; font-weight:700; }
     .journey-content p { max-height:none; overflow:visible; margin:0 0 22px; color:var(--muted); font-size:14px; line-height:1.65; opacity:1; }
     .section-cta { display:inline-flex; align-items:center; gap:9px; margin-top:auto; padding:10px 16px; border-radius:999px; background:var(--ink); color:white; text-decoration:none; font-size:13px; font-weight:750; box-shadow:0 8px 22px rgba(11,18,32,.12); transition:transform .2s ease,box-shadow .2s ease,background .2s ease; }
     .section-cta:hover { transform:translateY(-2px); background:var(--teal); box-shadow:0 12px 28px rgba(11,18,32,.16); }
@@ -524,40 +524,32 @@
 
         <div class="journey" id="service-track" aria-label="Where SourceConduct can help">
           <article class="journey-item">
-            <div class="journey-number">01</div>
             <div class="journey-content">
-              <div class="journey-kicker">Using open source</div>
-              <h3>“We use open source in our applications. What are our rights and obligations?”</h3>
+              <h3><span class="journey-number">01.</span> We use open source in our applications. What are our rights and obligations?</h3>
               <p>You have open source software in an existing product or application, perhaps under GPL, AGPL or another copyleft license, and something about the licensing is unclear. We help you understand the license, your rights, your obligations and the practical implications for your business.</p>
               <a class="section-cta" href="mailto:licensing@sourceconduct.com">Let's talk ↗</a>
             </div>
           </article>
 
           <article class="journey-item">
-            <div class="journey-number">02</div>
             <div class="journey-content">
-              <div class="journey-kicker">Enforcing your rights</div>
-              <h3>“We own an open source project. What happens when someone isn't respecting the license?”</h3>
+              <h3><span class="journey-number">02.</span> We own an open source project. What happens when someone isn't respecting the license?</h3>
               <p>You maintain or own open source software and believe a user or company may not be complying with its license. We provide guidance on identifying the issue, understanding your enforcement rights under GPL, AGPL and other licenses, and deciding how to engage.</p>
               <a class="section-cta" href="mailto:licensing@sourceconduct.com">Let's talk ↗</a>
             </div>
           </article>
 
           <article class="journey-item">
-            <div class="journey-number">03</div>
             <div class="journey-content">
-              <div class="journey-kicker">Auditing deployments</div>
-              <h3>“Our software is out there. Are customers using it within their entitlements?”</h3>
+              <h3><span class="journey-number">03.</span> Our software is out there. Are customers using it within their entitlements?</h3>
               <p>Your open source project has been around for years and has a real user or customer base. You want to understand how it is being deployed, whether usage aligns with your licensing model and where gaps may exist.</p>
               <a class="section-cta" href="mailto:licensing@sourceconduct.com">Let's talk ↗</a>
             </div>
           </article>
 
           <article class="journey-item">
-            <div class="journey-number">04</div>
             <div class="journey-content">
-              <div class="journey-kicker">Commercial opportunity</div>
-              <h3>“We have valuable software. Is there a better way to turn that usage into revenue?”</h3>
+              <h3><span class="journey-number">04.</span> We have valuable software. Is there a better way to turn that usage into revenue?</h3>
               <p>Open source adoption can create commercial opportunities as well as obligations. We help software companies understand their installed base, licensing options and the path from open source usage to sustainable revenue.</p>
               <a class="section-cta" href="mailto:licensing@sourceconduct.com">Let's talk ↗</a>
             </div>
