@@ -223,7 +223,7 @@
       letter-spacing: -.04em;
     }
 
-    .services-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; }
+    .services-heading { display:flex; align-items:center; justify-content:flex-end; gap:24px; margin-bottom:12px; }
     .services-subtitle { max-width:620px; margin:16px 0 0; color:var(--muted); font-size:16px; line-height:1.6; }
     .service-controls { display:flex; align-items:center; gap:8px; padding-bottom:5px; flex-shrink:0; }
     .service-count { margin-right:8px; color:var(--muted); font-size:12px; font-weight:650; white-space:nowrap; }
@@ -231,7 +231,7 @@
     .service-arrow:hover { background:#fff; border-color:rgba(22,163,148,.5); transform:translateY(-1px); }
     .journey { display:flex; gap:18px; overflow-x:auto; padding:2px 3px 16px; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
     .journey::-webkit-scrollbar { display:none; }
-    .journey-item { display:flex; flex:0 0 43%; flex-direction:column; align-items:stretch; min-height:345px; padding:25px 25px 24px; border:1px solid var(--line); border-radius:19px; background:rgba(255,255,255,.76); position:relative; scroll-snap-align:start; box-shadow:inset 0 3px 0 transparent; transition:background .2s ease,transform .2s ease,border-color .2s ease; }
+    .journey-item { display:flex; flex:0 0 100%; flex-direction:column; align-items:stretch; min-height:345px; padding:25px 25px 24px; border:1px solid var(--line); border-radius:19px; background:rgba(255,255,255,.76); position:relative; scroll-snap-align:start; box-shadow:inset 0 3px 0 transparent; transition:background .2s ease,transform .2s ease,border-color .2s ease; }
     .journey-item:nth-child(1) { box-shadow:inset 0 3px 0 #16a394; }
     .journey-item:nth-child(2) { box-shadow:inset 0 3px 0 #4268d8; }
     .journey-item:nth-child(3) { box-shadow:inset 0 3px 0 #d6a62a; }
@@ -472,7 +472,7 @@
       }
 
       .footer-simple { gap: 5px; }
-      .journey-item { flex-basis:88%; min-height:390px; padding:23px 21px 22px; }
+      .journey-item { flex-basis:100%; min-height:360px; padding:23px 21px 22px; }
       .service-count { font-size:11px; }
       .insight-link { flex-basis:88%; min-height:300px; padding:23px 21px; }
       .insight-count { font-size:11px; }
@@ -504,18 +504,15 @@
     <main>
       <section class="hero snap-section" id="home">
         <h1>
-          When open source software and the licensing gets
+          When open source software licensing gets
           <span class="accent">complicated,</span>
-          let's talk.
+          here's where we can help.
         </h1>
 
       </section>
 
       <section class="section snap-section" id="services">
         <div class="services-heading">
-          <div class="section-intro">
-            <h2 class="section-title">Where we can help</h2>
-          </div>
           <div class="service-controls" aria-label="Browse services">
             <span class="service-count">4 areas · Swipe to explore</span>
             <button class="service-arrow" type="button" data-service-direction="-1" aria-label="Previous area">←</button>
