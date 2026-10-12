@@ -479,6 +479,67 @@
       .insight-link { flex-basis:88%; min-height:300px; padding:23px 21px; }
       .insight-count { font-size:11px; }
     }
+
+    /* Desktop layout: use the wider canvas without changing the mobile design. */
+    @media (min-width: 801px) {
+      .hero {
+        max-width: 930px;
+        padding-bottom: 28px;
+      }
+
+      h1 {
+        max-width: 900px;
+        font-size: clamp(54px, 6vw, 76px);
+        line-height: 1.02;
+      }
+
+      #services {
+        padding-top: 14px;
+      }
+
+      .section {
+        padding: 48px 0 56px;
+      }
+
+      .journey-item {
+        flex-basis: calc(50% - 9px);
+        padding: 27px 28px 21px;
+      }
+
+      .journey-content h3 {
+        font-size: clamp(21px, 1.8vw, 24px);
+      }
+
+      .journey-content p {
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .about {
+        padding: 52px 0 58px;
+      }
+
+      .about-content h2 {
+        max-width: 900px;
+        font-size: clamp(36px, 3.8vw, 46px);
+      }
+
+      .insights-preview {
+        padding-top: 50px;
+        padding-bottom: 58px;
+      }
+
+      .insights-preview::before {
+        left: -18px;
+        right: -18px;
+      }
+
+      .insight-link {
+        flex-basis: 58%;
+        min-height: 265px;
+      }
+    }
+
   </style>
 </head>
 
