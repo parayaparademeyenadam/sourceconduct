@@ -320,39 +320,28 @@
       box-shadow: 0 12px 28px rgba(11,18,32,.16);
     }
 
-    .insights-preview {
-      position: relative;
-      isolation: isolate;
-    }
-    .insights-preview::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 28px;
-      bottom: 20px;
-      left: -30px;
-      right: -30px;
-      border-radius: 28px;
-      background: linear-gradient(115deg, rgba(22,163,148,.10), rgba(66,104,216,.08) 58%, rgba(214,166,42,.08));
-    }
-    .insight-link {
-      display: block;
-      max-width: 760px;
-      padding: 24px 26px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(255,255,255,.58);
-      color: inherit;
-      text-decoration: none;
-      transition: background .2s ease, transform .2s ease, border-color .2s ease;
-    }
-    .insight-link:hover { background: #fff; transform: translateY(-2px); border-color: rgba(22,163,148,.45); }
-    .insight-kicker { margin-bottom: 10px; color: var(--teal); font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-    .insight-link h3 { margin: 0 0 10px; font-size: clamp(22px, 2.8vw, 30px); line-height: 1.16; letter-spacing: -.03em; }
-    .insight-link p { max-width: 680px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.65; }
-    .insight-link span { display: inline-block; margin-top: 16px; font-size: 13px; font-weight: 750; }
-    .insights-all { display: inline-block; margin-top: 18px; color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 700; }
-    .insights-all:hover { color: var(--teal); }
+    .insights-preview { position: relative; isolation: isolate; }
+    .insights-preview::before { content:""; position:absolute; z-index:-1; top:28px; bottom:20px; left:-30px; right:-30px; border-radius:28px; background:linear-gradient(115deg,rgba(22,163,148,.10),rgba(66,104,216,.08) 58%,rgba(214,166,42,.08)); }
+    .insights-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; }
+    .insights-subtitle { max-width:620px; margin:16px 0 0; color:var(--muted); font-size:16px; line-height:1.65; }
+    .insight-controls { display:flex; align-items:center; gap:8px; padding-bottom:5px; flex-shrink:0; }
+    .insight-count { margin-right:8px; color:var(--muted); font-size:12px; font-weight:650; white-space:nowrap; }
+    .insight-arrow { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border:1px solid var(--line); border-radius:50%; background:rgba(255,255,255,.78); color:var(--ink); font-size:20px; cursor:pointer; transition:background .2s ease,border-color .2s ease,transform .2s ease; }
+    .insight-arrow:hover { background:#fff; border-color:rgba(22,163,148,.5); transform:translateY(-1px); }
+    .insight-track { display:flex; gap:18px; overflow-x:auto; padding:2px 3px 16px; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+    .insight-track::-webkit-scrollbar { display:none; }
+    .insight-link { display:flex; flex:0 0 68%; flex-direction:column; align-items:flex-start; min-height:280px; padding:25px 27px; border:1px solid var(--line); border-radius:19px; background:rgba(255,255,255,.76); color:inherit; text-decoration:none; scroll-snap-align:start; transition:background .2s ease,transform .2s ease,border-color .2s ease; }
+    .insight-link:hover { background:#fff; transform:translateY(-2px); border-color:rgba(22,163,148,.45); }
+    .insight-link-blue { background:linear-gradient(145deg,rgba(255,255,255,.88),rgba(66,104,216,.07)); }
+    .insight-card-top { display:flex; align-items:center; gap:13px; margin-bottom:25px; }
+    .insight-index { display:inline-flex; align-items:center; justify-content:center; width:35px; height:35px; border-radius:50%; background:rgba(22,163,148,.12); color:#087f74; font-size:12px; font-weight:800; }
+    .insight-link-blue .insight-index { background:rgba(66,104,216,.12); color:#3153b2; }
+    .insight-kicker { margin:0; color:var(--teal); font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+    .insight-link h3 { max-width:560px; margin:0 0 13px; font-size:clamp(23px,2.8vw,32px); line-height:1.14; letter-spacing:-.035em; }
+    .insight-link p { max-width:570px; margin:0 0 24px; color:var(--muted); font-size:15px; line-height:1.65; }
+    .insight-link .insight-read { display:flex; align-items:center; gap:9px; margin-top:auto; font-size:13px; font-weight:800; }
+    .insights-all { display:inline-block; margin-top:10px; color:var(--muted); text-decoration:none; font-size:14px; font-weight:700; }
+    .insights-all:hover { color:var(--teal); }
 
     .about {
       padding: 58px 0 65px;
@@ -562,7 +551,7 @@
         padding: 65px 0;
       }
 
-      .footer-simple { gap: 5px; }
+      .footer-simple { gap: 5px; }\n      .insight-link { flex-basis:88%; min-height:300px; padding:23px 21px; }\n      .insight-count { font-size:11px; }
     }
   </style>
 </head>
@@ -582,8 +571,8 @@
       <nav class="site-menu" id="site-menu" aria-label="Main navigation">
         <a href="/#home">Home <span>↗</span></a>
         <a href="/#services">Where we can help <span>↗</span></a>
-        <div class="menu-group"><a href="/insights/">Insights <span>＋</span></a><div class="submenu"><a href="/insights/open-source-as-a-business-model/">Open source is a business model, not a giveaway</a><a href="/insights/technical-expertise-for-open-source-law/">Open source licensing disputes need technical insight</a></div></div>
         <a href="/#about">Who we are <span>↗</span></a>
+        <div class="menu-group"><a href="/#insights">Insights <span>＋</span></a><div class="submenu"><a href="/insights/open-source-as-a-business-model/">Open source is a business model, not a giveaway</a><a href="/insights/technical-expertise-for-open-source-law/">Open source licensing disputes need technical insight</a><a href="/insights/">All insights</a></div></div>
         <a class="menu-contact" href="mailto:licensing@sourceconduct.com">Let's talk <span>↗</span></a>
       </nav>
     </header>
@@ -673,20 +662,6 @@
         </div>
       </section>
 
-      <section class="section insights-preview" id="insights">
-        <div class="section-intro">
-          <div class="section-label">Insights</div>
-          <h2 class="section-title">Open source, understood.</h2>
-        </div>
-        <a class="insight-link" href="/insights/open-source-as-a-business-model/">
-          <div class="insight-kicker">Open source fundamentals</div>
-          <h3>Open source is a business model, not a giveaway.</h3>
-          <p>Why companies open source software, how it supports different commercial strategies, and why license choice matters.</p>
-          <span>Read article ↗</span>
-        </a>
-        <a class="insights-all" href="/insights/">Explore all insights ↗</a>
-      </section>
-
       <section class="about" id="about">
         <div class="about-grid">
           <div class="about-content">
@@ -727,6 +702,36 @@
             </div>
           </div>
         </div>
+      </section>
+
+      <section class="section insights-preview" id="insights">
+        <div class="insights-heading">
+          <div class="section-intro">
+            <div class="section-label">Insights</div>
+            <h2 class="section-title">Open source, understood.</h2>
+            <p class="insights-subtitle">Ideas and practical perspectives on open source licensing, software, and the business around it.</p>
+          </div>
+          <div class="insight-controls" aria-label="Browse articles">
+            <span class="insight-count">2 articles · Swipe to explore</span>
+            <button class="insight-arrow" type="button" data-insight-direction="-1" aria-label="Previous article">←</button>
+            <button class="insight-arrow" type="button" data-insight-direction="1" aria-label="Next article">→</button>
+          </div>
+        </div>
+        <div class="insight-track" id="insight-track" aria-label="All SourceConduct articles">
+          <a class="insight-link" href="/insights/open-source-as-a-business-model/">
+            <div class="insight-card-top"><span class="insight-index">01</span><span class="insight-kicker">Open source fundamentals</span></div>
+            <h3>Open source is a business model, not a giveaway.</h3>
+            <p>Why companies open source software, how it supports different commercial strategies, and why license choice matters.</p>
+            <span class="insight-read">Read article <span aria-hidden="true">↗</span></span>
+          </a>
+          <a class="insight-link insight-link-blue" href="/insights/technical-expertise-for-open-source-law/">
+            <div class="insight-card-top"><span class="insight-index">02</span><span class="insight-kicker">For legal professionals</span></div>
+            <h3>Open source licensing disputes need technical insight.</h3>
+            <p>Why legal analysis can depend on understanding software architecture, implementation, dependencies, and technical evidence.</p>
+            <span class="insight-read">Read article <span aria-hidden="true">↗</span></span>
+          </a>
+        </div>
+        <a class="insights-all" href="/insights/">Visit the insights library <span aria-hidden="true">↗</span></a>
       </section>
     </main>
 
@@ -771,6 +776,18 @@
               });
             });
           }
+        });
+      });
+
+      const insightTrack = document.querySelector('#insight-track');
+      document.querySelectorAll('[data-insight-direction]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const firstCard = insightTrack.querySelector('.insight-link');
+          const cardWidth = firstCard.getBoundingClientRect().width;
+          insightTrack.scrollBy({
+            left: Number(button.dataset.insightDirection) * (cardWidth + 18),
+            behavior: 'smooth'
+          });
         });
       });
 
