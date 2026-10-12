@@ -223,102 +223,27 @@
       letter-spacing: -.04em;
     }
 
-    .journey {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      border-top: 1px solid var(--line);
-      border-left: 1px solid var(--line);
-    }
-
-    .journey-item {
-      display: block;
-      padding: 24px 26px 27px;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,.32);
-      position: relative;
-    }
-    .journey-item:nth-child(1) { box-shadow: inset 0 3px 0 #16a394; }
-    .journey-item:nth-child(2) { box-shadow: inset 0 3px 0 #4268d8; }
-    .journey-item:nth-child(3) { box-shadow: inset 0 3px 0 #d6a62a; }
-    .journey-item:nth-child(4) { box-shadow: inset 0 3px 0 #d77d63; }
-
-    .journey-number {
-      display: none;
-    }
-
-    .journey-content {
-      max-width: none;
-    }
-
-    .journey-kicker {
-      margin-bottom: 11px;
-      color: var(--teal);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-
-    .journey-content h3 {
-      margin: 0;
-      font-size: clamp(20px, 2vw, 25px);
-      line-height: 1.2;
-      letter-spacing: -.025em;
-      font-weight: 700;
-    }
-
-    .journey-content p {
-      max-height: 0;
-      overflow: hidden;
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.65;
-      opacity: 0;
-      transition: max-height .35s ease, margin-top .35s ease, opacity .25s ease;
-    }
-
-    .journey-item {
-      cursor: pointer;
-      transition: background .2s ease;
-    }
-
-    .journey-item:hover {
-      background: rgba(255,255,255,.55);
-    }
-
-    .journey-item.open p {
-      max-height: 220px;
-      margin-top: 16px;
-      opacity: 1;
-    }
-
-    .section-cta {
-      display: none;
-    }
-
-    .section-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-top: 22px;
-      padding: 10px 17px;
-      border-radius: 999px;
-      background: var(--ink);
-      color: white;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 750;
-      box-shadow: 0 8px 22px rgba(11,18,32,.12);
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-    }
-
-    .section-cta:hover {
-      transform: translateY(-2px);
-      background: var(--teal);
-      box-shadow: 0 12px 28px rgba(11,18,32,.16);
-    }
+    .services-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; }
+    .services-subtitle { max-width:620px; margin:16px 0 0; color:var(--muted); font-size:16px; line-height:1.6; }
+    .service-controls { display:flex; align-items:center; gap:8px; padding-bottom:5px; flex-shrink:0; }
+    .service-count { margin-right:8px; color:var(--muted); font-size:12px; font-weight:650; white-space:nowrap; }
+    .service-arrow { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border:1px solid var(--line); border-radius:50%; background:rgba(255,255,255,.78); color:var(--ink); font-size:20px; cursor:pointer; transition:background .2s ease,border-color .2s ease,transform .2s ease; }
+    .service-arrow:hover { background:#fff; border-color:rgba(22,163,148,.5); transform:translateY(-1px); }
+    .journey { display:flex; gap:18px; overflow-x:auto; padding:2px 3px 16px; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+    .journey::-webkit-scrollbar { display:none; }
+    .journey-item { display:flex; flex:0 0 43%; flex-direction:column; align-items:stretch; min-height:345px; padding:25px 25px 24px; border:1px solid var(--line); border-radius:19px; background:rgba(255,255,255,.76); position:relative; scroll-snap-align:start; box-shadow:inset 0 3px 0 transparent; transition:background .2s ease,transform .2s ease,border-color .2s ease; }
+    .journey-item:nth-child(1) { box-shadow:inset 0 3px 0 #16a394; }
+    .journey-item:nth-child(2) { box-shadow:inset 0 3px 0 #4268d8; }
+    .journey-item:nth-child(3) { box-shadow:inset 0 3px 0 #d6a62a; }
+    .journey-item:nth-child(4) { box-shadow:inset 0 3px 0 #d77d63; }
+    .journey-item:hover { background:#fff; transform:translateY(-2px); border-color:rgba(22,163,148,.38); }
+    .journey-number { display:block; margin-bottom:22px; color:#a0a9b7; font-size:12px; font-weight:800; letter-spacing:.1em; }
+    .journey-content { display:flex; flex:1; flex-direction:column; align-items:flex-start; max-width:none; }
+    .journey-kicker { margin-bottom:12px; color:var(--teal); font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+    .journey-content h3 { margin:0 0 14px; font-size:clamp(19px,1.7vw,23px); line-height:1.22; letter-spacing:-.025em; font-weight:700; }
+    .journey-content p { max-height:none; overflow:visible; margin:0 0 22px; color:var(--muted); font-size:14px; line-height:1.65; opacity:1; }
+    .section-cta { display:inline-flex; align-items:center; gap:9px; margin-top:auto; padding:10px 16px; border-radius:999px; background:var(--ink); color:white; text-decoration:none; font-size:13px; font-weight:750; box-shadow:0 8px 22px rgba(11,18,32,.12); transition:transform .2s ease,box-shadow .2s ease,background .2s ease; }
+    .section-cta:hover { transform:translateY(-2px); background:var(--teal); box-shadow:0 12px 28px rgba(11,18,32,.16); }
 
     .insights-preview { position: relative; isolation: isolate; }
     .insights-preview::before { content:""; position:absolute; z-index:-1; top:28px; bottom:20px; left:-30px; right:-30px; border-radius:28px; background:linear-gradient(115deg,rgba(22,163,148,.10),rgba(66,104,216,.08) 58%,rgba(214,166,42,.08)); }
@@ -506,21 +431,16 @@
     }
 
     @media (max-width: 800px) {
-      .journey {
-        grid-template-columns: 1fr;
-      }
-
-      .journey-item {
-        padding: 25px 22px 28px;
-      }
+      .services-heading { align-items:flex-start; flex-direction:column; gap:15px; }
+      .journey-item { flex-basis:78%; min-height:365px; padding:25px 22px 24px; }
 
       .about-grid {
         display: block;
       }
 
       .hero {
-        min-height: calc(100svh - 70px);
-        padding: 38px 0 70px;
+        min-height: auto;
+        padding: 30px 0 38px;
       }
 
       .section {
@@ -539,8 +459,8 @@
       header { padding: 22px 0; }
 
       .hero {
-        min-height: calc(100svh - 70px);
-        padding: 30px 0 60px;
+        min-height: auto;
+        padding: 26px 0 32px;
       }
 
       .section {
@@ -589,23 +509,25 @@
       </section>
 
       <section class="section snap-section" id="services">
-        <div class="section-intro">
-          <h2 class="section-title">Where we can help</h2>
+        <div class="services-heading">
+          <div class="section-intro">
+            <h2 class="section-title">Where we can help</h2>
+            <p class="services-subtitle">From understanding your obligations to protecting the value of your software.</p>
+          </div>
+          <div class="service-controls" aria-label="Browse services">
+            <span class="service-count">4 areas · Swipe to explore</span>
+            <button class="service-arrow" type="button" data-service-direction="-1" aria-label="Previous area">←</button>
+            <button class="service-arrow" type="button" data-service-direction="1" aria-label="Next area">→</button>
+          </div>
         </div>
 
-        <div class="journey">
+        <div class="journey" id="service-track" aria-label="Where SourceConduct can help">
           <article class="journey-item">
             <div class="journey-number">01</div>
             <div class="journey-content">
               <div class="journey-kicker">Using open source</div>
               <h3>“We use open source in our applications. What are our rights and obligations?”</h3>
-              <p>
-                You have open source software in an existing product or application,
-                perhaps under GPL, AGPL or another copyleft license, and something
-                about the licensing is unclear. We help you understand
-                the license, your rights, your obligations and the practical implications
-                for your business.
-              </p>
+              <p>You have open source software in an existing product or application, perhaps under GPL, AGPL or another copyleft license, and something about the licensing is unclear. We help you understand the license, your rights, your obligations and the practical implications for your business.</p>
               <a class="section-cta" href="mailto:licensing@sourceconduct.com">Let's talk ↗</a>
             </div>
           </article>
@@ -615,12 +537,7 @@
             <div class="journey-content">
               <div class="journey-kicker">Enforcing your rights</div>
               <h3>“We own an open source project. What happens when someone isn't respecting the license?”</h3>
-              <p>
-                You maintain or own open source software and believe a user or company
-                may not be complying with its license. We provide guidance on identifying
-                the issue, understanding your enforcement rights under GPL, AGPL
-                and other licenses, and deciding how to engage.
-              </p>
+              <p>You maintain or own open source software and believe a user or company may not be complying with its license. We provide guidance on identifying the issue, understanding your enforcement rights under GPL, AGPL and other licenses, and deciding how to engage.</p>
               <a class="section-cta" href="mailto:licensing@sourceconduct.com">Let's talk ↗</a>
             </div>
           </article>
@@ -630,11 +547,7 @@
             <div class="journey-content">
               <div class="journey-kicker">Auditing deployments</div>
               <h3>“Our software is out there. Are customers using it within their entitlements?”</h3>
-              <p>
-                Your open source project has been around for years and has a real user
-                or customer base. You want to understand how it is being deployed,
-                whether usage aligns with your licensing model and where gaps may exist.
-              </p>
+              <p>Your open source project has been around for years and has a real user or customer base. You want to understand how it is being deployed, whether usage aligns with your licensing model and where gaps may exist.</p>
               <a class="section-cta" href="mailto:licensing@sourceconduct.com">Let's talk ↗</a>
             </div>
           </article>
@@ -644,11 +557,7 @@
             <div class="journey-content">
               <div class="journey-kicker">Commercial opportunity</div>
               <h3>“We have valuable software. Is there a better way to turn that usage into revenue?”</h3>
-              <p>
-                Open source adoption can create commercial opportunities as well as
-                obligations. We help software companies understand their installed base,
-                licensing options and the path from open source usage to sustainable revenue.
-              </p>
+              <p>Open source adoption can create commercial opportunities as well as obligations. We help software companies understand their installed base, licensing options and the path from open source usage to sustainable revenue.</p>
               <a class="section-cta" href="mailto:licensing@sourceconduct.com">Let's talk ↗</a>
             </div>
           </article>
@@ -752,23 +661,15 @@
         }
       });
 
-      document.querySelectorAll('.journey-item').forEach((item) => {
-        item.addEventListener('click', () => {
-          const wasOpen = item.classList.contains('open');
-          item.classList.toggle('open');
-
-          if (!wasOpen) {
-            requestAnimationFrame(() => {
-              requestAnimationFrame(() => {
-                const rect = item.getBoundingClientRect();
-                const targetY = window.scrollY + rect.top - (window.innerHeight - rect.height) / 2;
-                window.scrollTo({
-                  top: Math.max(0, targetY),
-                  behavior: 'smooth'
-                });
-              });
-            });
-          }
+      const serviceTrack = document.querySelector('#service-track');
+      document.querySelectorAll('[data-service-direction]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const firstCard = serviceTrack.querySelector('.journey-item');
+          const cardWidth = firstCard.getBoundingClientRect().width;
+          serviceTrack.scrollBy({
+            left: Number(button.dataset.serviceDirection) * (cardWidth + 18),
+            behavior: 'smooth'
+          });
         });
       });
 
