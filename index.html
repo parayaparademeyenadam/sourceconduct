@@ -613,7 +613,7 @@
   </style>
 <style id="sc-consent-styles">
 #sc-consent-banner{position:fixed;z-index:9999;left:18px;right:18px;bottom:18px;max-width:760px;margin:0 auto;padding:22px;background:#fff;color:#0b1220;border:1px solid rgba(11,18,32,.14);border-radius:18px;box-shadow:0 18px 55px rgba(11,18,32,.22);font:14px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
-#sc-consent-banner[hidden],#sc-cookie-settings[hidden]{display:none}#sc-consent-banner h2{margin:0 0 7px;font-size:18px;line-height:1.3;color:#0b1220}#sc-consent-banner p{margin:0 0 14px;color:#536074;font-size:14px}.sc-consent-actions{display:flex;flex-wrap:wrap;gap:9px;align-items:center}.sc-consent-btn{border:1px solid #0b1220;border-radius:999px;padding:10px 16px;font:700 13px/1.2 Inter,ui-sans-serif,system-ui,sans-serif;cursor:pointer}.sc-consent-accept{background:#0b1220;color:#fff}.sc-consent-reject{background:#fff;color:#0b1220}.sc-consent-more{color:#087f74;text-decoration:underline;font-weight:700}
+#sc-consent-banner[hidden],#sc-cookie-settings[hidden]{display:none}#sc-consent-banner h2{margin:0 0 7px;font-size:18px;line-height:1.3;color:#0b1220}#sc-consent-banner p{margin:0 0 14px;color:#536074;font-size:14px}.sc-consent-actions{display:flex;flex-wrap:wrap;gap:9px;align-items:center}.sc-consent-btn{border:1px solid #0b1220;border-radius:999px;padding:10px 16px;font:700 13px/1.2 Inter,ui-sans-serif,system-ui,sans-serif;cursor:pointer}.sc-consent-accept{background:#0b1220;color:#fff}.sc-consent-reject{background:#fff;color:#0b1220}.sc-consent-settings{background:#fff;color:#0b1220}.sc-consent-more{color:#087f74;text-decoration:underline;font-weight:700}
 #sc-cookie-settings{position:fixed;z-index:9998;right:14px;bottom:12px;border:1px solid rgba(11,18,32,.18);border-radius:999px;background:#fff;color:#0b1220;padding:8px 12px;font:700 12px/1.2 Inter,ui-sans-serif,system-ui,sans-serif;box-shadow:0 4px 16px rgba(11,18,32,.12);cursor:pointer}
 @media(max-width:560px){#sc-consent-banner{left:10px;right:10px;bottom:10px;padding:18px}.sc-consent-actions{align-items:stretch}.sc-consent-btn{flex:1 1 auto}#sc-cookie-settings{right:8px;bottom:8px}}
 </style>
@@ -855,22 +855,24 @@
      · <a href="/privacy/" style="color:inherit;text-decoration:none">Privacy notice</a></footer>
   </div>
 <div id="sc-consent-banner" role="dialog" aria-labelledby="sc-consent-title" aria-describedby="sc-consent-description" hidden>
-<h2 id="sc-consent-title">Help us improve this website</h2>
-<p id="sc-consent-description">We’d like to understand how visitors use SourceConduct so we can improve our content and website experience. Optional website measurement uses Google Analytics and will only run if you agree. Read our <a href="/privacy/" class="sc-consent-more">Privacy Notice</a>.</p>
-<div class="sc-consent-actions"><button type="button" class="sc-consent-btn sc-consent-accept" id="sc-consent-accept">Allow measurement</button><button type="button" class="sc-consent-btn sc-consent-reject" id="sc-consent-reject">No thanks</button></div>
+<h2 id="sc-consent-title">Your privacy choices</h2>
+<p id="sc-consent-description">We use cookies and similar technologies to make this website work. With your permission, we also use optional measurement to understand how the site is used and improve its content. See our <a href="/privacy/" class="sc-consent-more">Privacy Notice</a>.</p>
+<div id="sc-cookie-details" hidden><p><strong>Necessary storage</strong> helps remember your privacy choice and keep the website working. <strong>Optional measurement</strong> uses Google Analytics to understand visits and page usage. Optional measurement stays off unless you accept it.</p></div>
+<div class="sc-consent-actions"><button type="button" class="sc-consent-btn sc-consent-accept" id="sc-consent-accept">Accept all</button><button type="button" class="sc-consent-btn sc-consent-reject" id="sc-consent-reject">Reject optional</button><button type="button" class="sc-consent-btn sc-consent-settings" id="sc-consent-settings">Cookie settings</button></div>
 </div>
 <button type="button" id="sc-cookie-settings" hidden aria-label="Change privacy choices">Privacy settings</button>
 <script id="sc-consent-script">
 (function(){
 var key='sourceconduct-analytics-consent-v1',measurementId='G-7Q0NGX9WKQ';
-var banner=document.getElementById('sc-consent-banner'),settings=document.getElementById('sc-cookie-settings');
+var banner=document.getElementById('sc-consent-banner'),settings=document.getElementById('sc-cookie-settings'),details=document.getElementById('sc-cookie-details'),settingsButton=document.getElementById('sc-consent-settings');
 function readChoice(){try{var saved=localStorage.getItem(key);if(!saved)return null;var data=JSON.parse(saved);if(!data||!data.choice||!data.savedAt||Date.now()-data.savedAt>183*24*60*60*1000){localStorage.removeItem(key);return null;}return data.choice;}catch(e){return null;}}
 function loadAnalytics(){if(window.__scAnalyticsLoaded)return;window.__scAnalyticsLoaded=true;window.dataLayer=window.dataLayer||[];window.gtag=function(){window.dataLayer.push(arguments);};window.gtag('js',new Date());window.gtag('config',measurementId,{anonymize_ip:true});var script=document.createElement('script');script.async=true;script.src='https://www.googletagmanager.com/gtag/js?id='+measurementId;document.head.appendChild(script);}
 function saveChoice(choice){try{localStorage.setItem(key,JSON.stringify({choice:choice,savedAt:Date.now()}));}catch(e){}banner.hidden=true;settings.hidden=false;if(choice==='accepted'){window['ga-disable-'+measurementId]=false;loadAnalytics();}else{window['ga-disable-'+measurementId]=true;if(window.gtag)window.gtag('consent','update',{analytics_storage:'denied'});}}
 var choice=readChoice();if(choice==='accepted'){settings.hidden=false;loadAnalytics();}else if(choice==='rejected'){settings.hidden=false;}else{banner.hidden=false;}
 document.getElementById('sc-consent-accept').addEventListener('click',function(){saveChoice('accepted');});
 document.getElementById('sc-consent-reject').addEventListener('click',function(){saveChoice('rejected');});
-settings.addEventListener('click',function(){banner.hidden=false;settings.hidden=true;});
+settingsButton.addEventListener('click',function(){details.hidden=!details.hidden;settingsButton.textContent=details.hidden?'Cookie settings':'Hide settings';});
+settings.addEventListener('click',function(){banner.hidden=false;settings.hidden=true;details.hidden=true;settingsButton.textContent='Cookie settings';});
 })();
 </script>
 </body>
