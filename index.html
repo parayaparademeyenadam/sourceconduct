@@ -226,11 +226,10 @@
     .services-heading { display:flex; align-items:center; justify-content:flex-end; gap:24px; margin-bottom:12px; }
     .services-subtitle { max-width:620px; margin:16px 0 0; color:var(--muted); font-size:16px; line-height:1.6; }
     .service-controls { display:flex; align-items:center; gap:8px; padding-bottom:5px; flex-shrink:0; }
-    .panel-controls { width:100%; margin-top:18px; padding-top:12px; border-top:1px solid var(--line); }
-    .panel-controls .service-count { margin-right:auto; }
-    .service-count { margin-right:8px; color:var(--muted); font-size:12px; font-weight:650; white-space:nowrap; }
-    .service-arrow { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border:1px solid var(--line); border-radius:50%; background:rgba(255,255,255,.78); color:var(--ink); font-size:20px; cursor:pointer; transition:background .2s ease,border-color .2s ease,transform .2s ease; }
-    .service-arrow:hover { background:#fff; border-color:rgba(22,163,148,.5); transform:translateY(-1px); }
+    .panel-controls { position:absolute; top:16px; right:16px; display:flex; align-items:center; gap:8px; margin:0; padding:0; }
+    .service-arrow { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid rgba(66,104,216,.25); border-radius:12px; background:linear-gradient(145deg,#4268d8,#3153b2); color:#fff; font-size:21px; line-height:1; cursor:pointer; box-shadow:0 5px 13px rgba(49,83,178,.22); transition:background .2s ease,box-shadow .2s ease,transform .2s ease; }
+    .service-arrow:hover { background:linear-gradient(145deg,#3153b2,#244394); box-shadow:0 8px 18px rgba(49,83,178,.3); transform:translateY(-2px); }
+    .service-arrow:focus-visible { outline:3px solid rgba(66,104,216,.35); outline-offset:3px; }
     .journey { display:flex; gap:18px; overflow-x:auto; padding:2px 3px 16px; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
     .journey::-webkit-scrollbar { display:none; }
     .journey-item { display:flex; flex:0 0 100%; flex-direction:column; align-items:stretch; min-height:0; height:auto; padding:25px 25px 18px; border:1px solid var(--line); border-radius:19px; background:rgba(255,255,255,.76); position:relative; scroll-snap-align:start; box-shadow:inset 0 3px 0 transparent; transition:background .2s ease,transform .2s ease,border-color .2s ease; }
@@ -553,7 +552,7 @@
     .hero-eyebrow { margin-bottom:18px; color:var(--teal); font-size:11px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; }
     .hero-visual { min-width:0; }
     .hero-visual svg { display:block; width:100%; height:auto; filter:drop-shadow(0 18px 35px rgba(11,18,32,.14)); }
-    .journey-item { overflow:hidden; }
+    .journey-item { overflow:hidden; padding-top:64px; }
     .service-visual { display:flex; align-items:center; justify-content:center; width:100%; height:72px; margin:0 0 14px; border-radius:12px; background:linear-gradient(120deg,rgba(245,248,251,.9),rgba(232,242,246,.55)); }
     .service-visual svg { width:112px; height:70px; overflow:visible; }
     .about-grid { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr); gap:42px; align-items:center; }
@@ -628,8 +627,7 @@
               <h3><span class="journey-number">1.</span> You use open-source software in your applications. What are your rights, risks and obligations?</h3>
               <p>We help you assess how open-source components are used in your applications, interpret the relevant license terms, and understand the obligations, risks, and options available to you. This gives you a clearer basis for making informed technical and business decisions while managing compliance proactively.</p>
               <a class="section-cta" href="mailto:licensing@sourceconduct.com">Let's talk ↗</a>
-              <div class="service-controls panel-controls" aria-label="Browse services">
-                <span class="service-count">Explore 4 areas</span>
+              <div class="service-controls panel-controls" aria-label="Browse service areas">
                 <button class="service-arrow" type="button" data-service-direction="-1" aria-label="Previous area">←</button>
                 <button class="service-arrow" type="button" data-service-direction="1" aria-label="Next area">→</button>
               </div>
@@ -642,8 +640,7 @@
               <h3><span class="journey-number">2.</span> You're advising on an open-source licensing matter. Need help understanding the technology?</h3>
               <p>We work alongside legal counsel to examine software architecture, dependencies, implementation, deployment and technical evidence. We help distinguish assumptions from facts, clarify how the software actually behaves, and identify the technical details that matter to the licensing analysis and any next steps.</p>
               <a class="section-cta" href="mailto:licensing@sourceconduct.com">Let's talk ↗</a>
-              <div class="service-controls panel-controls" aria-label="Browse services">
-                <span class="service-count">Explore 4 areas</span>
+              <div class="service-controls panel-controls" aria-label="Browse service areas">
                 <button class="service-arrow" type="button" data-service-direction="-1" aria-label="Previous area">←</button>
                 <button class="service-arrow" type="button" data-service-direction="1" aria-label="Next area">→</button>
               </div>
@@ -656,8 +653,7 @@
               <h3><span class="journey-number">3.</span> You own an open-source project. What can you do when someone may be violating its license?</h3>
               <p>We help you address open-source license violations and develop effective enforcement strategies. Beyond individual cases, we can design and build an open-source licensing program tailored to your organization, leveraging our experience building such programs at other organizations. We help you turn non-compliant users into paying customers and transform open-source licensing into a sustainable, substantial revenue stream.</p>
               <a class="section-cta" href="mailto:licensing@sourceconduct.com">Let's talk ↗</a>
-              <div class="service-controls panel-controls" aria-label="Browse services">
-                <span class="service-count">Explore 4 areas</span>
+              <div class="service-controls panel-controls" aria-label="Browse service areas">
                 <button class="service-arrow" type="button" data-service-direction="-1" aria-label="Previous area">←</button>
                 <button class="service-arrow" type="button" data-service-direction="1" aria-label="Next area">→</button>
               </div>
@@ -670,8 +666,7 @@
               <h3><span class="journey-number">4.</span> You have valuable software. Is there a better way to turn adoption into revenue?</h3>
               <p>We help you evaluate your software, current adoption and licensing approach to identify where commercial value may be going unrealized. Together, we can explore licensing models and practical strategies that support compliance, convert adoption into paying customers, and build a more sustainable source of revenue.</p>
               <a class="section-cta" href="mailto:licensing@sourceconduct.com">Let's talk ↗</a>
-              <div class="service-controls panel-controls" aria-label="Browse services">
-                <span class="service-count">Explore 4 areas</span>
+              <div class="service-controls panel-controls" aria-label="Browse service areas">
                 <button class="service-arrow" type="button" data-service-direction="-1" aria-label="Previous area">←</button>
                 <button class="service-arrow" type="button" data-service-direction="1" aria-label="Next area">→</button>
               </div>
