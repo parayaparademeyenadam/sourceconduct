@@ -540,6 +540,41 @@
       }
     }
 
+
+    .hero { max-width:none; }
+    .hero-copy-layout { display:grid; grid-template-columns:minmax(0, .95fr) minmax(400px, 1.05fr); align-items:center; gap:24px; }
+    .hero-message { position:relative; z-index:1; }
+    .hero-eyebrow { margin-bottom:18px; color:var(--teal); font-size:11px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; }
+    .hero-visual { min-width:0; }
+    .hero-visual svg { display:block; width:100%; height:auto; filter:drop-shadow(0 18px 35px rgba(11,18,32,.14)); }
+    .journey-item { overflow:hidden; }
+    .service-visual { display:flex; align-items:center; justify-content:center; width:100%; height:72px; margin:0 0 14px; border-radius:12px; background:linear-gradient(120deg,rgba(245,248,251,.9),rgba(232,242,246,.55)); }
+    .service-visual svg { width:112px; height:70px; overflow:visible; }
+    .about-grid { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr); gap:42px; align-items:center; }
+    .about-visual { min-width:0; }
+    .about-visual svg { display:block; width:100%; height:auto; filter:drop-shadow(0 15px 25px rgba(11,18,32,.08)); }
+    @media (min-width:801px) {
+      .hero { padding-top:18px; padding-bottom:24px; }
+      .hero h1 { font-size:clamp(47px,5vw,68px); }
+      .journey-item { flex-basis:calc(50% - 9px); }
+      .service-visual { height:88px; }
+      .service-visual svg { height:82px; width:140px; }
+    }
+    @media (max-width:800px) {
+      .hero-copy-layout { grid-template-columns:1fr; gap:14px; }
+      .hero-visual { max-width:540px; width:100%; margin:0 auto; }
+      .hero-visual svg { max-height:250px; }
+      .about-grid { grid-template-columns:1fr; gap:20px; }
+      .about-visual { max-width:420px; margin:0 auto; }
+    }
+    @media (max-width:560px) {
+      .hero-eyebrow { font-size:10px; margin-bottom:12px; }
+      .hero-copy-layout { gap:10px; }
+      .hero-visual svg { max-height:185px; }
+      .service-visual { height:62px; margin-bottom:10px; }
+      .service-visual svg { height:60px; }
+      .about-visual { display:none; }
+    }
   </style>
 </head>
 
@@ -566,12 +601,46 @@
 
     <main>
       <section class="hero snap-section" id="home">
-        <h1>
-          When open source software licensing gets
-          <span class="accent">complicated,</span>
-          we can help you navigate it.
-        </h1>
-
+        <div class="hero-copy-layout">
+          <div class="hero-message">
+            <div class="hero-eyebrow">Technical expertise for open-source licensing</div>
+            <h1>
+              When open source software licensing gets
+              <span class="accent">complicated,</span>
+              we can help you navigate it.
+            </h1>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <svg viewBox="0 0 560 390" role="img" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="heroPanel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#14304a"/><stop offset="1" stop-color="#071522"/></linearGradient>
+                <linearGradient id="nodeTeal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5eead4"/><stop offset="1" stop-color="#087f86"/></linearGradient>
+                <linearGradient id="nodeGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe6a1"/><stop offset="1" stop-color="#d6a62a"/></linearGradient>
+              </defs>
+              <rect x="22" y="20" width="516" height="350" rx="28" fill="url(#heroPanel)"/>
+              <g fill="none" stroke="#244a60" stroke-width="1.2">
+                <path d="M70 95L280 48 486 125 280 185Z"/><path d="M70 150L280 103 486 180 280 240Z"/><path d="M70 205L280 158 486 235 280 295Z"/>
+                <path d="M70 95V205M280 48V295M486 125V235"/>
+              </g>
+              <g fill="none" stroke="#28c8bd" stroke-width="2.2" stroke-linecap="round">
+                <path d="M130 145L220 111 290 160 370 112 435 155"/><path d="M220 111L220 225 290 260 370 210 435 155"/>
+              </g>
+              <g fill="none" stroke="#e7b94f" stroke-width="2.2" stroke-linecap="round"><path d="M290 160L370 210 435 155"/><path d="M290 260L370 280 435 220"/></g>
+              <g>
+                <rect x="74" y="119" width="92" height="58" rx="8" fill="#102d43" stroke="#2a7080"/><path d="M88 135h46M88 146h60M88 157h35" stroke="#47d5d0" stroke-width="3" stroke-linecap="round"/>
+                <rect x="188" y="80" width="64" height="56" rx="9" fill="#12384c" stroke="#2e8997"/><path d="M200 95h39M200 105h28" stroke="#65e6df" stroke-width="2.5" stroke-linecap="round"/>
+                <rect x="260" y="132" width="64" height="56" rx="9" fill="#12384c" stroke="#2e8997"/><path d="M272 147h39M272 157h28" stroke="#65e6df" stroke-width="2.5" stroke-linecap="round"/>
+                <rect x="340" y="84" width="64" height="56" rx="9" fill="#153548" stroke="#a98631"/><path d="M352 99h39M352 109h28" stroke="#e9c56b" stroke-width="2.5" stroke-linecap="round"/>
+                <rect x="340" y="184" width="64" height="56" rx="9" fill="#12384c" stroke="#2e8997"/><path d="M352 199h39M352 209h28" stroke="#65e6df" stroke-width="2.5" stroke-linecap="round"/>
+                <rect x="420" y="142" width="86" height="102" rx="10" fill="#102b40" stroke="#d6a62a"/><path d="M437 163h52M437 175h40M437 187h46" stroke="#70d8d0" stroke-width="3" stroke-linecap="round"/><path d="M453 213l9-9 9 9M462 204v18" stroke="#e9c56b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+              <g font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">
+                <text x="75" y="101" fill="#7de5de">APPLICATION</text><text x="211" y="68" fill="#7de5de">DEPENDENCIES</text><text x="405" y="125" fill="#f1cc72">LICENSE</text>
+              </g>
+              <g fill="#6ee7d8"><circle cx="220" cy="111" r="5"/><circle cx="290" cy="160" r="5"/><circle cx="370" cy="112" r="5"/></g><g fill="#f3c85c"><circle cx="370" cy="210" r="5"/><circle cx="435" cy="155" r="5"/></g>
+            </svg>
+          </div>
+        </div>
       </section>
 
       <section class="section snap-section" id="services">
@@ -586,6 +655,7 @@
         <div class="journey" id="service-track" aria-label="Where SourceConduct can help">
           <article class="journey-item">
             <div class="journey-content">
+              <span class="service-visual service-visual-risk" aria-hidden="true"><svg viewBox="0 0 100 62"><path d="M10 23 47 5l39 18-38 19Z" fill="#d9e9f7"/><path d="M10 31 48 49l38-18" fill="none" stroke="#75b8c7" stroke-width="2"/><path d="M21 37 48 50l27-13" fill="none" stroke="#4268d8" stroke-width="2"/><path d="M74 5 91 35H57Z" fill="#e8bd4c"/><path d="M74 15v9m0 5v1" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></span>
               <h3><span class="journey-number">1.</span> You use open-source software in your applications. What are your rights, risks and obligations?</h3>
               <p>We help you understand the applicable license, your rights and obligations, and the practical implications for your product and business.</p>
               <a class="section-cta" href="mailto:licensing@sourceconduct.com">Let's talk ↗</a>
@@ -594,6 +664,7 @@
 
           <article class="journey-item">
             <div class="journey-content">
+              <span class="service-visual service-visual-legal" aria-hidden="true"><svg viewBox="0 0 100 62"><rect x="13" y="9" width="48" height="44" rx="5" fill="#dcebf3"/><path d="M23 21h28M23 29h21M23 37h25" stroke="#5a93ad" stroke-width="3" stroke-linecap="round"/><rect x="39" y="4" width="38" height="48" rx="5" fill="#12374b"/><path d="M47 17h21M47 25h15M47 33h18" stroke="#58d5cf" stroke-width="2.5" stroke-linecap="round"/><circle cx="75" cy="39" r="13" fill="none" stroke="#d6a62a" stroke-width="4"/><path d="m84 49 9 9" stroke="#d6a62a" stroke-width="5" stroke-linecap="round"/></svg></span>
               <h3><span class="journey-number">2.</span> You're advising on an open-source licensing matter. Need help understanding the technology?</h3>
               <p>We work alongside legal counsel to examine software architecture, dependencies, implementation, deployment and technical evidence—helping you distinguish assumptions from facts and understand what matters to the legal analysis.</p>
               <a class="section-cta" href="mailto:licensing@sourceconduct.com">Let's talk ↗</a>
@@ -602,6 +673,7 @@
 
           <article class="journey-item">
             <div class="journey-content">
+              <span class="service-visual service-visual-enforce" aria-hidden="true"><svg viewBox="0 0 100 62"><g stroke="#9fc8d0" stroke-width="2" fill="#dcecf0"><rect x="5" y="20" width="17" height="17" rx="3"/><rect x="78" y="8" width="17" height="17" rx="3"/><rect x="78" y="39" width="17" height="17" rx="3"/></g><path d="M22 28h14l8-9h10m-10 22h10l8 8h16m-16-29h16" fill="none" stroke="#9fc8d0" stroke-width="2"/><path d="M53 8 71 15v14c0 13-9 21-18 26-9-5-18-13-18-26V15Z" fill="#168e91" stroke="#6edbd0" stroke-width="2"/><path d="m45 29 6 6 11-13" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <h3><span class="journey-number">3.</span> You own an open-source project. What can you do when someone may be violating its license?</h3>
               <p>We help you investigate potential non-compliance, understand your enforcement options, and decide how to approach the issue.</p>
               <a class="section-cta" href="mailto:licensing@sourceconduct.com">Let's talk ↗</a>
@@ -610,6 +682,7 @@
 
           <article class="journey-item">
             <div class="journey-content">
+              <span class="service-visual service-visual-growth" aria-hidden="true"><svg viewBox="0 0 100 62"><path d="M8 51h84" stroke="#c6d4df" stroke-width="2"/><rect x="17" y="37" width="16" height="14" rx="2" fill="#4268d8"/><rect x="42" y="27" width="16" height="24" rx="2" fill="#16a394"/><rect x="67" y="11" width="16" height="40" rx="2" fill="#d6a62a"/><path d="m18 29 25-11 14 2 25-14" fill="none" stroke="#93a9b9" stroke-width="2" stroke-dasharray="3 4"/></svg></span>
               <h3><span class="journey-number">4.</span> You have valuable software. Is there a better way to turn adoption into revenue?</h3>
               <p>We help you assess your installed base, explore licensing options, and identify opportunities to turn open-source adoption into sustainable revenue.</p>
               <a class="section-cta" href="mailto:licensing@sourceconduct.com">Let's talk ↗</a>
@@ -656,7 +729,18 @@
               software actually does, how it is being used, and what the license means
               in that real-world context.
             </div>
-          </div>
+
+          <div class="about-visual" aria-hidden="true">
+            <svg viewBox="0 0 500 310" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="layerBlue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d9e8fb"/><stop offset="1" stop-color="#8db4e5"/></linearGradient><linearGradient id="layerTeal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c7f0e9"/><stop offset="1" stop-color="#54c5b8"/></linearGradient><linearGradient id="layerGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8e9bd"/><stop offset="1" stop-color="#d9b24f"/></linearGradient></defs>
+              <path d="M55 78 235 15 421 79 240 146Z" fill="url(#layerBlue)" opacity=".9"/><path d="M55 78v21l185 70 181-69V79L240 146Z" fill="#91b7e4" opacity=".6"/>
+              <path d="M55 135 235 72 421 136 240 203Z" fill="url(#layerTeal)" opacity=".92"/><path d="M55 135v21l185 70 181-69v-21L240 203Z" fill="#42b7ab" opacity=".55"/>
+              <path d="M55 192 235 129 421 193 240 260Z" fill="url(#layerGold)" opacity=".92"/><path d="M55 192v21l185 70 181-69v-21L240 260Z" fill="#d6a62a" opacity=".5"/>
+              <g stroke="#557f9c" stroke-dasharray="4 5" stroke-width="1.5" fill="none"><path d="M110 72v135"/><path d="M180 47v146"/><path d="M270 36v150"/><path d="M335 56v140"/></g>
+              <g><circle cx="110" cy="108" r="5" fill="#4268d8"/><circle cx="180" cy="104" r="5" fill="#16a394"/><circle cx="270" cy="91" r="5" fill="#4268d8"/><circle cx="335" cy="118" r="5" fill="#d6a62a"/></g>
+              <g font-family="Arial,sans-serif" font-size="13" font-weight="700"><text x="110" y="298" text-anchor="middle" fill="#4268d8">COMPONENTS</text><text x="240" y="298" text-anchor="middle" fill="#087f74">DEPLOYMENT</text><text x="367" y="298" text-anchor="middle" fill="#9a7415">LICENSE</text></g>
+            </svg>
+          </div>          </div>
         </div>
       </section>
 
