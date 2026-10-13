@@ -555,9 +555,8 @@
     .journey-item { overflow:hidden; padding-top:64px; }
     .service-visual { display:flex; align-items:center; justify-content:center; width:100%; height:72px; margin:0 0 14px; border-radius:12px; background:linear-gradient(120deg,rgba(245,248,251,.9),rgba(232,242,246,.55)); }
     .service-visual svg { width:112px; height:70px; overflow:visible; }
-    .about-grid { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr); gap:42px; align-items:center; }
-    .about-visual { min-width:0; padding:0; border-radius:28px; overflow:hidden; background:#0b1426; box-shadow:0 24px 55px rgba(11,18,32,.16), inset 0 0 0 1px rgba(255,255,255,.12); }
-    .about-visual svg { display:block; width:100%; height:auto; filter:none; }
+    .about-grid { display:block; }
+
     @media (min-width:801px) {
       .hero { padding-top:18px; padding-bottom:24px; }
       .hero h1 { font-size:clamp(42px,4.2vw,52px); }
@@ -571,7 +570,7 @@
       .hero-visual { max-width:540px; width:100%; margin:0 auto; }
       .hero-visual svg { max-height:250px; }
       .about-grid { grid-template-columns:1fr; gap:20px; }
-      .about-visual { max-width:420px; margin:0 auto; }
+
     }
     @media (max-width:560px) {
       .hero h1 { font-size:clamp(32px,8vw,38px); }
@@ -580,7 +579,7 @@
       .hero-visual svg { max-height:185px; }
       .service-visual { height:62px; margin-bottom:10px; }
       .service-visual svg { height:60px; }
-      .about-visual { display:block; width:100%; max-width:460px; margin:8px auto 0; border-radius:20px; }
+
     }
   </style>
 </head>
@@ -674,8 +673,7 @@
       <section class="about" id="about">
         <div class="about-grid">
           <div class="about-content">
-            <div class="section-label">Who we are</div>
-            <h2>Technical enough to understand the code. Experienced enough to know when the legal argument doesn&#39;t hold up.</h2>
+            <h2>From software engineering to licensing strategy and enforcement, we understand both the technology and the business behind it.</h2>
 
             <p>
               SourceConduct was founded by a computer engineer with a PhD who started
@@ -711,51 +709,7 @@
             </div>
 
           </div>
-          <div class="about-visual" aria-hidden="true">
-            <svg class="about-art" viewBox="0 0 520 390" xmlns="http://www.w3.org/2000/svg" role="presentation">
-              <defs>
-                <linearGradient id="aboutBase" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111e35"/><stop offset=".58" stop-color="#0b1426"/><stop offset="1" stop-color="#102c3a"/></linearGradient>
-                <linearGradient id="glassTop" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d9f8ff" stop-opacity=".76"/><stop offset=".45" stop-color="#7ddbd5" stop-opacity=".25"/><stop offset="1" stop-color="#3b6e91" stop-opacity=".12"/></linearGradient>
-                <linearGradient id="glassMid" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#80e8dc" stop-opacity=".5"/><stop offset="1" stop-color="#277b91" stop-opacity=".12"/></linearGradient>
-                <linearGradient id="glassLow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e8c979" stop-opacity=".38"/><stop offset="1" stop-color="#bd9b4b" stop-opacity=".08"/></linearGradient>
-                <radialGradient id="tealGlow"><stop stop-color="#26d5c2" stop-opacity=".46"/><stop offset="1" stop-color="#26d5c2" stop-opacity="0"/></radialGradient>
-                <radialGradient id="goldGlow"><stop stop-color="#d9b65f" stop-opacity=".22"/><stop offset="1" stop-color="#d9b65f" stop-opacity="0"/></radialGradient>
-                <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="24"/></filter>
-                <filter id="glassShadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="15" stdDeviation="13" flood-color="#020817" flood-opacity=".42"/></filter>
-              </defs>
-              <rect x="8" y="8" width="504" height="374" rx="27" fill="url(#aboutBase)"/>
-              <circle cx="355" cy="126" r="116" fill="url(#tealGlow)" filter="url(#softBlur)"/>
-              <circle cx="170" cy="285" r="95" fill="url(#goldGlow)" filter="url(#softBlur)"/>
-              <g opacity=".15" stroke="#a9dce5" stroke-width=".8">
-                <path d="M32 70H488M32 118H488M32 166H488M32 214H488M32 262H488M32 310H488M32 358H488"/>
-                <path d="M68 32V358M116 32V358M164 32V358M212 32V358M260 32V358M308 32V358M356 32V358M404 32V358M452 32V358"/>
-              </g>
-              <g filter="url(#glassShadow)">
-                <path d="M76 116 260 53 444 117 260 183Z" fill="url(#glassTop)" stroke="#c7f5f2" stroke-opacity=".65" stroke-width="1.2"/>
-                <path d="M76 116v22l184 67 184-67v-21L260 183Z" fill="#6cbec7" fill-opacity=".17" stroke="#8bdcd8" stroke-opacity=".38"/>
-                <path d="M76 177 260 114 444 178 260 244Z" fill="url(#glassMid)" stroke="#83e6db" stroke-opacity=".62" stroke-width="1.2"/>
-                <path d="M76 177v22l184 67 184-67v-21L260 244Z" fill="#2d9f9d" fill-opacity=".2" stroke="#83e6db" stroke-opacity=".32"/>
-                <path d="M76 238 260 175 444 239 260 305Z" fill="url(#glassLow)" stroke="#e8ce8b" stroke-opacity=".7" stroke-width="1.2"/>
-                <path d="M76 238v22l184 67 184-67v-21L260 305Z" fill="#bba15f" fill-opacity=".16" stroke="#e8ce8b" stroke-opacity=".4"/>
-              </g>
-              <g fill="none" stroke-linecap="round">
-                <path d="M115 111 260 61 406 112" stroke="#fff" stroke-opacity=".45" stroke-width="1.1"/>
-                <path d="M115 173 260 123 406 174" stroke="#a5fff2" stroke-opacity=".52" stroke-width="1.1"/>
-                <path d="M115 234 260 184 406 235" stroke="#f7e6b4" stroke-opacity=".48" stroke-width="1.1"/>
-                <path d="M116 86 116 250M183 63 183 273M337 63 337 273M405 87 405 250" stroke="#8bc9d5" stroke-opacity=".22" stroke-dasharray="3 6"/>
-              </g>
-              <g>
-                <circle cx="116" cy="116" r="4" fill="#d9b65f"/><circle cx="260" cy="183" r="4" fill="#8cf5e4"/><circle cx="405" cy="174" r="4" fill="#8cf5e4"/><circle cx="337" cy="273" r="4" fill="#d9b65f"/>
-                <circle cx="116" cy="116" r="8" fill="none" stroke="#d9b65f" stroke-opacity=".55"/><circle cx="260" cy="183" r="8" fill="none" stroke="#8cf5e4" stroke-opacity=".5"/>
-              </g>
-              <g font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="2.1">
-                <text x="36" y="345" fill="#8bded6">SOFTWARE</text><text x="211" y="345" fill="#d8e4f0">LICENSING</text><text x="387" y="345" fill="#d9b65f">VALUE</text>
-              </g>
-              <path d="M36 326H484" stroke="#c2dce5" stroke-opacity=".2"/>
-              <circle cx="469" cy="48" r="2" fill="#e5c778"/><circle cx="454" cy="48" r="2" fill="#e5c778" fill-opacity=".5"/><circle cx="439" cy="48" r="2" fill="#e5c778" fill-opacity=".25"/>
-            </svg>
-          </div>
-        </div>
+</div>
       </section>
 
       <section class="section insights-preview" id="insights">
