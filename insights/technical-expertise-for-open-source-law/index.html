@@ -79,11 +79,11 @@
   siteMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{siteMenu.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Open navigation menu')}));
   document.addEventListener('click',event=>{if(!siteMenu.contains(event.target)&&!menuToggle.contains(event.target)){siteMenu.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Open navigation menu')}});
 </script><div id="sc-consent-banner" role="dialog" aria-labelledby="sc-consent-title" aria-describedby="sc-consent-description" hidden>
-<h2 id="sc-consent-title">Your privacy choices</h2>
-<p id="sc-consent-description">We use Google Analytics to understand how visitors find and use SourceConduct, including pages viewed and time spent. Analytics is optional and will only run if you agree. Read our <a href="/privacy/" class="sc-consent-more">Privacy Notice</a>.</p>
-<div class="sc-consent-actions"><button type="button" class="sc-consent-btn sc-consent-accept" id="sc-consent-accept">Accept analytics</button><button type="button" class="sc-consent-btn sc-consent-reject" id="sc-consent-reject">Reject optional analytics</button></div>
+<h2 id="sc-consent-title">Help us improve this website</h2>
+<p id="sc-consent-description">We’d like to understand how visitors use SourceConduct so we can improve our content and website experience. Optional website measurement uses Google Analytics and will only run if you agree. Read our <a href="/privacy/" class="sc-consent-more">Privacy Notice</a>.</p>
+<div class="sc-consent-actions"><button type="button" class="sc-consent-btn sc-consent-accept" id="sc-consent-accept">Allow measurement</button><button type="button" class="sc-consent-btn sc-consent-reject" id="sc-consent-reject">No thanks</button></div>
 </div>
-<button type="button" id="sc-cookie-settings" hidden aria-label="Change analytics consent">Privacy settings</button>
+<button type="button" id="sc-cookie-settings" hidden aria-label="Change privacy choices">Privacy settings</button>
 <script id="sc-consent-script">
 (function(){
 var key='sourceconduct-analytics-consent-v1',measurementId='G-7Q0NGX9WKQ';
