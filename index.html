@@ -109,12 +109,13 @@
     }
 
     .tagline {
-      color: #d6a62a;
       font-size: 8px;
       font-weight: 600;
       letter-spacing: .02em;
       line-height: 1.2;
     }
+    .tagline-source { color: var(--ink); }
+    .tagline-conduct { color: #d6a62a; }
 
     .header-link {
       color: var(--muted);
@@ -657,7 +658,7 @@
       <a class="brand" href="/">
         <span class="brand-copy">
           <span class="wordmark">SOURCE<span>CONDUCT</span></span>
-          <span class="tagline">Understand the product. Unlock its potential.</span>
+          <span class="tagline"><span class="tagline-source">Understand the product.</span> <span class="tagline-conduct">Unlock its potential.</span></span>
         </span>
       </a>
       <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-menu">
